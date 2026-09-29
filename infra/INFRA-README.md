@@ -5,30 +5,30 @@ nothing here runs until the coordinator says the code is ready.
 
 ## Files
 
-- `launch_pod.py` — builds the pod spec and creates the RTX 4090 pod via the
+- `launch_pod.py` - builds the pod spec and creates the RTX 4090 pod via the
   RunPod REST API. Packs the code tree as a base64 tarball (excludes `infra/`,
   `results/`, caches). Saves `pod_id.txt` and `serve_token.txt` (mode 600).
-- `bootstrap.sh` — the pod's start command. Unpacks code, builds a venv with
+- `bootstrap.sh` - the pod's start command. Unpacks code, builds a venv with
   `--system-site-packages` (inherits the image's torch), `pip install -e
   ".[eval,test]"`, then runs: smoke test (00) -> HF gated-access check ->
   data prep (01) -> training (02, beta 0.1) under the monitor.py watchdog ->
   evals (03, judge step auto-skips: no OpenRouter key on pod) -> packages
   `results.tar.gz` -> serves `/workspace/serve/` on :8080 with token auth and
   stays alive for the VM to fetch.
-- `monitor.py` — training watchdog. Watches
+- `monitor.py` - training watchdog. Watches
   `results/runs/beta_0.1/training_log.jsonl`; stops training on NaN loss or on
   margin flat at zero while loss falls. Writes `/workspace/serve/status.json`
   every 60 s for the VM to poll.
-- `serve.py` — token-auth static server for the results handoff.
-- `pod_status.py` — VM-side poller: prints the pod's `status.json` (or any
+- `serve.py` - token-auth static server for the results handoff.
+- `pod_status.py` - VM-side poller: prints the pod's `status.json` (or any
   path, e.g. `bootstrap.log`) through RunPod's HTTPS proxy URL.
 
 ## Pod env vars (set by launch_pod.py, never baked into the tarball)
 
-- `HF_TOKEN` — read from `~/.config/llm-secrets.env` on the VM. Needed for the
+- `HF_TOKEN` - read from `~/.config/llm-secrets.env` on the VM. Needed for the
   gated Qwen2.5-1.5B-Instruct weights/tokenizer.
-- `SERVE_TOKEN` — freshly generated per run; guards the :8080 results server.
-- `CODE_GZ_B64`, `BOOTSTRAP_B64`, `MONITOR_B64`, `SERVE_B64` — the payload.
+- `SERVE_TOKEN` - freshly generated per run; guards the :8080 results server.
+- `CODE_GZ_B64`, `BOOTSTRAP_B64`, `MONITOR_B64`, `SERVE_B64` - the payload.
 
 ## Fetch-then-terminate flow
 
@@ -56,6 +56,6 @@ bootstrap.sh (`timeout 28800`).
 Python HTTP clients get Cloudflare 1010 (banned TLS fingerprint) on
 api.runpod.io / rest.runpod.io. `launch_pod.py` therefore makes
 all API calls through `curl` (whose fingerprint passes), with the API key
-passed via stdin config — never on a command line, never logged. `pod_status.py`
+passed via stdin config - never on a command line, never logged. `pod_status.py`
 uses the same curl-via-pipe trick for the `*.proxy.runpod.net` URLs, since
 urllib is banned there too.
