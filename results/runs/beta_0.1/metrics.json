@@ -1,0 +1,42 @@
+{
+  "config_hash": "a43985a7d14591450acc8e9354880440132b5d6747da870ebd63507788ec65f6",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "beta": 0.1,
+  "train_pairs": 10000,
+  "global_step": 313,
+  "margin_base_acc": 0.572,
+  "margin_base_metric": "accuracy_len_norm",
+  "margin_dpo_acc": 0.668,
+  "margin_delta": 0.09600000000000009,
+  "margin_n": 1000,
+  "mmlu_base_acc": null,
+  "mmlu_dpo_acc": null,
+  "mmlu_delta": null,
+  "mmlu_status": "not_measured",
+  "mmlu_note": "lm-eval 0.4.13 requires Python >= 3.13 (PEP 728 TypedDict extra_items); pod runs Python 3.11, so the guard could not import",
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "seed": 42,
+  "judge_win_rate": 0.5425,
+  "judge_n": 400,
+  "judge_n_prompts": 200,
+  "judge_ties": 36,
+  "judge_parse_errors": 0,
+  "judge_wilson_95": [
+    0.49350413540767263,
+    0.5906872901413545
+  ],
+  "judge_wilson_note": "Wilson CI on integer dpo-wins / n labels; ties count as non-wins, matching judge_win_rate exactly",
+  "judge_length_splits": {
+    "overall": 0.5875,
+    "when_dpo_longer": 0.6353383458646616,
+    "when_base_longer": 0.4925373134328358
+  },
+  "judge_model": "openai/gpt-4o-mini",
+  "judge_decisive_win_rate": 0.5961538461538461,
+  "judge_decisive_n": 364,
+  "judge_decisive_wilson_95": [
+    0.5449963100053615,
+    0.6453029927379933
+  ]
+}
