@@ -1,0 +1,43 @@
+# ---- dpo-lab .gitignore ----
+
+# Run outputs / fetched results (large, environment-specific)
+results-fetch/
+results/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test / tooling caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Packaging artifacts
+*.egg-info/
+dist/
+build/
+
+# IDE / editor noise
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# ---- Secrets / live infra state (NEVER commit) ----
+infra/serve_token.txt
+infra/pod_id.txt
+
+# Run logs (runtime artifacts, never commit)
+*.log
+
+# Trained adapters and checkpoints live OUTSIDE the repo by design
+# (results-fetch/ is excluded above); never commit model weights.
+*.bin
+*.safetensors
