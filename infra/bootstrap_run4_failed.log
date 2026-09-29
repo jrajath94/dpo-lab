@@ -1,0 +1,530 @@
+=== bootstrap start 2026-09-28T23:43:58Z ===
+GPU: NVIDIA GeForce RTX 4090
+tar: dpo-lab/README.md: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/pyproject.toml: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/.gitignore: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/configs/dpo_qwen25_15b_qlora.yaml: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/configs/dpo_qwen25_3b.yaml: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/__init__.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/train.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/evaluate.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/utils.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/plots.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/data.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/tests/test_splits.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/tests/test_smoke.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/02_train.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/01_prepare_data.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/03_evaluate.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/00_smoke_test.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/04_beta_sweep.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/05_compare_betas.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/docs/design-notes.md: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: Exiting with failure status due to previous errors
+results server started in background (pid 58)
+code unpacked: 7.0M
+=== step 0: install ===
+serving /workspace/serve on port 8080 (token auth)
+system torch: 2.8.0.dev20250319+cu128 cuda: True
+[heartbeat 23:44:13] install in progress
+      Successfully uninstalled pip-24.0
+Successfully installed pip-26.2.1
+Obtaining file:///workspace/dpo-lab
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: torch>=2.4 in /usr/local/lib/python3.11/dist-packages (from dpo-weekend==0.1.0) (2.8.0.dev20250319+cu128)
+Collecting transformers==5.17.0 (from dpo-weekend==0.1.0)
+  Downloading transformers-5.17.0-py3-none-any.whl.metadata (32 kB)
+Collecting datasets==5.0.1 (from dpo-weekend==0.1.0)
+  Downloading datasets-5.0.1-py3-none-any.whl.metadata (23 kB)
+Collecting trl==1.14.0 (from dpo-weekend==0.1.0)
+  Downloading trl-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting peft==0.21.0 (from dpo-weekend==0.1.0)
+  Downloading peft-0.21.0-py3-none-any.whl.metadata (15 kB)
+Collecting accelerate==1.15.0 (from dpo-weekend==0.1.0)
+  Downloading accelerate-1.15.0-py3-none-any.whl.metadata (19 kB)
+Collecting bitsandbytes==0.50.2 (from dpo-weekend==0.1.0)
+  Downloading bitsandbytes-0.50.2-py3-none-manylinux_2_24_x86_64.whl.metadata (10 kB)
+Requirement already satisfied: pyyaml>=6.0 in /usr/local/lib/python3.11/dist-packages (from dpo-weekend==0.1.0) (6.0.2)
+Requirement already satisfied: numpy>=1.26 in /usr/local/lib/python3.11/dist-packages (from dpo-weekend==0.1.0) (2.1.2)
+Requirement already satisfied: requests>=2.31 in /usr/local/lib/python3.11/dist-packages (from dpo-weekend==0.1.0) (2.32.3)
+Collecting matplotlib>=3.8 (from dpo-weekend==0.1.0)
+  Downloading matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+Collecting lm-eval==0.4.13 (from dpo-weekend==0.1.0)
+  Downloading lm_eval-0.4.13-py3-none-any.whl.metadata (64 kB)
+Collecting pytest>=8.0 (from dpo-weekend==0.1.0)
+  Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.11/dist-packages (from accelerate==1.15.0->dpo-weekend==0.1.0) (24.2)
+Requirement already satisfied: psutil in /usr/local/lib/python3.11/dist-packages (from accelerate==1.15.0->dpo-weekend==0.1.0) (7.0.0)
+Collecting huggingface_hub>=0.21.0 (from accelerate==1.15.0->dpo-weekend==0.1.0)
+  Downloading huggingface_hub-2.0.0-py3-none-any.whl.metadata (16 kB)
+Collecting safetensors>=0.4.3 (from accelerate==1.15.0->dpo-weekend==0.1.0)
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: filelock in /usr/local/lib/python3.11/dist-packages (from datasets==5.0.1->dpo-weekend==0.1.0) (3.16.1)
+Collecting pyarrow>=21.0.0 (from datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting dill<0.4.2,>=0.3.0 (from datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading dill-0.4.1-py3-none-any.whl.metadata (10 kB)
+Collecting pandas (from datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+Requirement already satisfied: httpx<1.0.0 in /usr/local/lib/python3.11/dist-packages (from datasets==5.0.1->dpo-weekend==0.1.0) (0.28.1)
+Collecting tqdm>=4.66.3 (from datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting xxhash (from datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (17 kB)
+Collecting multiprocess<0.70.20 (from datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading multiprocess-0.70.19-py311-none-any.whl.metadata (7.5 kB)
+Requirement already satisfied: fsspec<=2026.6.0,>=2023.1.0 in /usr/local/lib/python3.11/dist-packages (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0) (2024.10.0)
+Collecting huggingface_hub>=0.21.0 (from accelerate==1.15.0->dpo-weekend==0.1.0)
+  Downloading huggingface_hub-1.33.0-py3-none-any.whl.metadata (16 kB)
+Collecting evaluate>=0.4.0 (from lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.11/dist-packages (from lm-eval==0.4.13->dpo-weekend==0.1.0) (3.1.4)
+Collecting pytablewriter (from lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading pytablewriter-1.2.1-py3-none-any.whl.metadata (38 kB)
+Collecting rouge-score>=0.0.4 (from lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading rouge_score-0.1.2.tar.gz (17 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting sacrebleu>=1.5.0 (from lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading sacrebleu-2.6.0-py3-none-any.whl.metadata (39 kB)
+Collecting scikit-learn>=0.24.1 (from lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Collecting sqlitedict (from lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading sqlitedict-2.1.0.tar.gz (21 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting word2number (from lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading word2number-1.1.zip (9.7 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: more_itertools in /usr/lib/python3/dist-packages (from lm-eval==0.4.13->dpo-weekend==0.1.0) (8.10.0)
+Requirement already satisfied: typing_extensions in /usr/local/lib/python3.11/dist-packages (from lm-eval==0.4.13->dpo-weekend==0.1.0) (4.12.2)
+Collecting regex>=2025.10.22 (from transformers==5.17.0->dpo-weekend==0.1.0)
+  Downloading regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<0.24.0,>=0.23.1 (from transformers==5.17.0->dpo-weekend==0.1.0)
+  Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Collecting typer (from transformers==5.17.0->dpo-weekend==0.1.0)
+  Downloading typer-0.27.2-py3-none-any.whl.metadata (16 kB)
+Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Requirement already satisfied: anyio in /usr/local/lib/python3.11/dist-packages (from httpx<1.0.0->datasets==5.0.1->dpo-weekend==0.1.0) (4.9.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.11/dist-packages (from httpx<1.0.0->datasets==5.0.1->dpo-weekend==0.1.0) (2025.1.31)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.11/dist-packages (from httpx<1.0.0->datasets==5.0.1->dpo-weekend==0.1.0) (1.0.7)
+Requirement already satisfied: idna in /usr/local/lib/python3.11/dist-packages (from httpx<1.0.0->datasets==5.0.1->dpo-weekend==0.1.0) (3.10)
+Requirement already satisfied: h11<0.15,>=0.13 in /usr/local/lib/python3.11/dist-packages (from httpcore==1.*->httpx<1.0.0->datasets==5.0.1->dpo-weekend==0.1.0) (0.14.0)
+Collecting click<9.0.0,>=8.4.2 (from huggingface_hub>=0.21.0->accelerate==1.15.0->dpo-weekend==0.1.0)
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface_hub>=0.21.0->accelerate==1.15.0->dpo-weekend==0.1.0)
+  Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Requirement already satisfied: sympy>=1.13.3 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (1.13.3)
+Requirement already satisfied: networkx in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (3.4.2)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.61 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (12.8.61)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.57 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (12.8.57)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.57 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (12.8.57)
+Requirement already satisfied: nvidia-cudnn-cu12==9.8.0.87 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (9.8.0.87)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.3.14 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (12.8.3.14)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.41 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (11.3.3.41)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.55 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (10.3.9.55)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.2.55 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (11.7.2.55)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.7.53 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (12.5.7.53)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.25.1 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (2.25.1)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.55 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (12.8.55)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.61 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (12.8.61)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.0.11 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (1.13.0.11)
+Requirement already satisfied: pytorch-triton==3.3.0+git96316ce5 in /usr/local/lib/python3.11/dist-packages (from torch>=2.4->dpo-weekend==0.1.0) (3.3.0+git96316ce5)
+Requirement already satisfied: setuptools>=40.8.0 in ./.venv/lib/python3.11/site-packages (from pytorch-triton==3.3.0+git96316ce5->torch>=2.4->dpo-weekend==0.1.0) (65.5.0)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.11/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0) (25.3.0)
+Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets==5.0.1->dpo-weekend==0.1.0)
+  Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+Collecting contourpy>=1.0.1 (from matplotlib>=3.8->dpo-weekend==0.1.0)
+  Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib>=3.8->dpo-weekend==0.1.0)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib>=3.8->dpo-weekend==0.1.0)
+  Downloading fonttools-4.66.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (129 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib>=3.8->dpo-weekend==0.1.0)
+  Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+Requirement already satisfied: pillow>=9 in /usr/local/lib/python3.11/dist-packages (from matplotlib>=3.8->dpo-weekend==0.1.0) (11.0.0)
+Collecting pyparsing>=3 (from matplotlib>=3.8->dpo-weekend==0.1.0)
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.11/dist-packages (from matplotlib>=3.8->dpo-weekend==0.1.0) (2.9.0.post0)
+Collecting iniconfig>=1.0.1 (from pytest>=8.0->dpo-weekend==0.1.0)
+  Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest>=8.0->dpo-weekend==0.1.0)
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.11/dist-packages (from pytest>=8.0->dpo-weekend==0.1.0) (2.19.1)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3/dist-packages (from python-dateutil>=2.7->matplotlib>=3.8->dpo-weekend==0.1.0) (1.16.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests>=2.31->dpo-weekend==0.1.0) (3.4.1)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests>=2.31->dpo-weekend==0.1.0) (2.3.0)
+Collecting absl-py (from rouge-score>=0.0.4->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading absl_py-2.5.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting nltk (from rouge-score>=0.0.4->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading nltk-3.10.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting portalocker (from sacrebleu>=1.5.0->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading portalocker-4.4.0-py3-none-any.whl.metadata (10 kB)
+Collecting tabulate>=0.8.9 (from sacrebleu>=1.5.0->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+Collecting colorama (from sacrebleu>=1.5.0->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting lxml (from sacrebleu>=1.5.0->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting scipy>=1.10.0 (from scikit-learn>=0.24.1->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting joblib>=1.4.0 (from scikit-learn>=0.24.1->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn>=0.24.1->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading narwhals-2.26.0-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn>=0.24.1->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn>=0.24.1->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.11/dist-packages (from sympy>=1.13.3->torch>=2.4->dpo-weekend==0.1.0) (1.3.0)
+Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.11/dist-packages (from anyio->httpx<1.0.0->datasets==5.0.1->dpo-weekend==0.1.0) (1.3.1)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.11/dist-packages (from jinja2->lm-eval==0.4.13->dpo-weekend==0.1.0) (2.1.5)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.11/dist-packages (from nltk->rouge-score>=0.0.4->lm-eval==0.4.13->dpo-weekend==0.1.0) (0.7.1)
+Collecting DataProperty<2,>=1.1.0 (from pytablewriter->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading dataproperty-1.1.1-py3-none-any.whl.metadata (12 kB)
+Collecting mbstrdecoder<2,>=1.0.0 (from pytablewriter->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading mbstrdecoder-1.1.5-py3-none-any.whl.metadata (4.3 kB)
+Collecting pathvalidate<4,>=2.3.0 (from pytablewriter->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading pathvalidate-3.3.1-py3-none-any.whl.metadata (12 kB)
+Collecting tabledata<2,>=1.3.1 (from pytablewriter->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading tabledata-1.3.5-py3-none-any.whl.metadata (4.0 kB)
+Collecting tcolorpy<1,>=0.0.5 (from pytablewriter->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading tcolorpy-0.1.7-py3-none-any.whl.metadata (6.3 kB)
+Collecting typepy<2,>=1.3.2 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading typepy-1.3.5-py3-none-any.whl.metadata (9.6 kB)
+Collecting chardet<7,>=3.0.4 (from mbstrdecoder<2,>=1.0.0->pytablewriter->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading chardet-6.0.0.post1-py3-none-any.whl.metadata (3.3 kB)
+Collecting pytz>=2018.9 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm-eval==0.4.13->dpo-weekend==0.1.0)
+  Downloading pytz-2026.4-py2.py3-none-any.whl.metadata (22 kB)
+Collecting shellingham>=1.3.0 (from typer->transformers==5.17.0->dpo-weekend==0.1.0)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer->transformers==5.17.0->dpo-weekend==0.1.0)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer->transformers==5.17.0->dpo-weekend==0.1.0)
+  Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer->transformers==5.17.0->dpo-weekend==0.1.0)
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers==5.17.0->dpo-weekend==0.1.0)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading accelerate-1.15.0-py3-none-any.whl (394 kB)
+Downloading bitsandbytes-0.50.2-py3-none-manylinux_2_24_x86_64.whl (43.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.1/43.1 MB 61.5 MB/s  0:00:00
+Downloading datasets-5.0.1-py3-none-any.whl (559 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 559.1/559.1 kB 30.0 MB/s  0:00:00
+Downloading lm_eval-0.4.13-py3-none-any.whl (9.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 98.9 MB/s  0:00:00
+Downloading peft-0.21.0-py3-none-any.whl (832 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 832.9/832.9 kB 54.1 MB/s  0:00:00
+Downloading transformers-5.17.0-py3-none-any.whl (12.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 110.1 MB/s  0:00:00
+Downloading trl-1.14.0-py3-none-any.whl (925 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 925.0/925.0 kB 60.1 MB/s  0:00:00
+Downloading dill-0.4.1-py3-none-any.whl (120 kB)
+Downloading huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 31.8 MB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 72.8 MB/s  0:00:00
+Downloading multiprocess-0.70.19-py311-none-any.whl (144 kB)
+Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 60.3 MB/s  0:00:00
+Downloading aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 82.2 MB/s  0:00:00
+Downloading multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (320 kB)
+Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading evaluate-0.4.6-py3-none-any.whl (84 kB)
+Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)
+Downloading matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 103.7 MB/s  0:00:00
+Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.66.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 102.2 MB/s  0:00:00
+Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 70.9 MB/s  0:00:00
+Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (235 kB)
+Downloading pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl (50.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.1/50.1 MB 121.6 MB/s  0:00:00
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Downloading regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (802 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 803.0/803.0 kB 42.8 MB/s  0:00:00
+Downloading sacrebleu-2.6.0-py3-none-any.whl (100 kB)
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 96.4 MB/s  0:00:00
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading narwhals-2.26.0-py3-none-any.whl (474 kB)
+Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 115.6 MB/s  0:00:00
+Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)
+Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading absl_py-2.5.0-py3-none-any.whl (137 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 88.9 MB/s  0:00:00
+Downloading nltk-3.10.3-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 23.7 MB/s  0:00:00
+Downloading pandas-3.0.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.1/11.1 MB 115.3 MB/s  0:00:00
+Downloading portalocker-4.4.0-py3-none-any.whl (129 kB)
+Downloading pytablewriter-1.2.1-py3-none-any.whl (91 kB)
+Downloading dataproperty-1.1.1-py3-none-any.whl (27 kB)
+Downloading mbstrdecoder-1.1.5-py3-none-any.whl (8.0 kB)
+Downloading chardet-6.0.0.post1-py3-none-any.whl (627 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 627.2/627.2 kB 39.8 MB/s  0:00:00
+Downloading pathvalidate-3.3.1-py3-none-any.whl (24 kB)
+Downloading tabledata-1.3.5-py3-none-any.whl (11 kB)
+Downloading tcolorpy-0.1.7-py3-none-any.whl (8.1 kB)
+Downloading typepy-1.3.5-py3-none-any.whl (31 kB)
+Downloading pytz-2026.4-py2.py3-none-any.whl (506 kB)
+Downloading typer-0.27.2-py3-none-any.whl (123 kB)
+Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (261 kB)
+Building wheels for collected packages: dpo-weekend, rouge-score, sqlitedict, word2number
+  Building editable for dpo-weekend (pyproject.toml): started
+  Building editable for dpo-weekend (pyproject.toml): finished with status 'done'
+  Created wheel for dpo-weekend: filename=dpo_weekend-0.1.0-0.editable-py3-none-any.whl size=1458 sha256=7c027841edebba5fd69829c153819792de41eb22585b3d1ee19f90583d619606
+  Stored in directory: /workspace/pip-tmp/pip-ephem-wheel-cache-ex78_rwk/wheels/cf/49/c3/9ad3438bfb3ae4c79e2863a5cccd83fbb6c8998c64f37d4a42
+  Building wheel for rouge-score (pyproject.toml): started
+  Building wheel for rouge-score (pyproject.toml): finished with status 'done'
+  Created wheel for rouge-score: filename=rouge_score-0.1.2-py3-none-any.whl size=24987 sha256=d1f09a44b7de47bcfae9191ee392436627c43a1ca6b6b9a22580bbad4f216a8f
+  Stored in directory: /root/.cache/pip/wheels/1e/19/43/8a442dc83660ca25e163e1bd1f89919284ab0d0c1475475148
+  Building wheel for sqlitedict (pyproject.toml): started
+  Building wheel for sqlitedict (pyproject.toml): finished with status 'done'
+  Created wheel for sqlitedict: filename=sqlitedict-2.1.0-py3-none-any.whl size=16958 sha256=d719b787f32daf23a8bff2a00f5ffce6e22a886b69b8d2783f99b398807f0268
+  Stored in directory: /root/.cache/pip/wheels/73/63/89/7210274f9b7fb033b8f22671f64c0e0b55083d30c3c046a3ff
+  Building wheel for word2number (pyproject.toml): started
+  Building wheel for word2number (pyproject.toml): finished with status 'done'
+  Created wheel for word2number: filename=word2number-1.1-py3-none-any.whl size=5658 sha256=d5558aae741e9cdcd00ff8e7b70282b5cf059b4a7adff2f28c907fbf3540c37c
+  Stored in directory: /root/.cache/pip/wheels/cd/ef/ae/073b491b14d25e2efafcffca9e16b2ee6d114ec5c643ba4f06
+Successfully built dpo-weekend rouge-score sqlitedict word2number
+Installing collected packages: word2number, sqlitedict, pytz, xxhash, tqdm, threadpoolctl, tcolorpy, tabulate, shellingham, scipy, safetensors, regex, pyparsing, pyarrow, propcache, portalocker, pluggy, pathvalidate, narwhals, multidict, mdurl, lxml, kiwisolver, iniconfig, hf-xet, frozenlist, fonttools, dill, cycler, contourpy, colorama, cloudpickle, click, chardet, annotated-doc, aiohappyeyeballs, absl-py, yarl, sacrebleu, pytest, pandas, multiprocess, mbstrdecoder, matplotlib, markdown-it-py, joblib, aiosignal, typepy, scikit-learn, rich, nltk, huggingface_hub, aiohttp, typer, tokenizers, rouge-score, bitsandbytes, accelerate, transformers, datasets, DataProperty, trl, tabledata, peft, evaluate, pytablewriter, dpo-weekend, lm-eval
+[heartbeat 23:45:13] install in progress
+  Attempting uninstall: pyparsing
+    Found existing installation: pyparsing 2.4.7
+    Not uninstalling pyparsing at /usr/lib/python3/dist-packages, outside environment /workspace/dpo-lab/.venv
+    Can't uninstall 'pyparsing'. No files were found to uninstall.
+[heartbeat 23:46:13] install in progress
+[heartbeat 23:47:13] install in progress
+[heartbeat 23:48:13] install in progress
+
+Successfully installed DataProperty-1.1.1 absl-py-2.5.0 accelerate-1.15.0 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 annotated-doc-0.0.5 bitsandbytes-0.50.2 chardet-6.0.0.post1 click-8.5.0 cloudpickle-3.1.2 colorama-0.4.6 contourpy-1.3.3 cycler-0.12.1 datasets-5.0.1 dill-0.4.1 dpo-weekend-0.1.0 evaluate-0.4.6 fonttools-4.66.0 frozenlist-1.8.0 hf-xet-1.6.0 huggingface_hub-1.33.0 iniconfig-2.3.0 joblib-1.6.0 kiwisolver-1.5.1 lm-eval-0.4.13 lxml-6.1.3 markdown-it-py-4.2.0 matplotlib-3.11.2 mbstrdecoder-1.1.5 mdurl-0.1.2 multidict-6.9.1 multiprocess-0.70.19 narwhals-2.26.0 nltk-3.10.3 pandas-3.0.6 pathvalidate-3.3.1 peft-0.21.0 pluggy-1.6.0 portalocker-4.4.0 propcache-0.5.4 pyarrow-25.0.1 pyparsing-3.3.3 pytablewriter-1.2.1 pytest-9.1.1 pytz-2026.4 regex-2026.9.10 rich-15.0.0 rouge-score-0.1.2 sacrebleu-2.6.0 safetensors-0.8.0 scikit-learn-1.9.1 scipy-1.17.1 shellingham-1.5.4 sqlitedict-2.1.0 tabledata-1.3.5 tabulate-0.10.0 tcolorpy-0.1.7 threadpoolctl-3.7.0 tokenizers-0.23.2 tqdm-4.70.1 transformers-5.17.0 trl-1.14.0 typepy-1.3.5 typer-0.27.2 word2number-1.1 xxhash-4.0.1 yarl-1.25.1
+[heartbeat 23:49:13] install in progress
+INSTALL DONE
+=== step 1: smoke test ===
+== python ==
+dpo_weekend 0.1.0
+== unit tests ==
+........................................................................ [ 46%]
+........................................................................ [ 92%]
+............                                                             [100%]
+156 passed in 38.47s
+== config + run-path checks (tests/test_smoke.py) ==
+...........                                                              [100%]
+11 passed in 0.17s
+SMOKE OK
+=== HF gated-access check (Qwen weights need HF_TOKEN) ===
+model reachable: Qwen/Qwen2.5-1.5B-Instruct | gated: False
+authenticated as: jrajath
+=== step 2: data prep ===
+HF_TOKEN is set.
+/usr/local/lib/python3.11/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (6.0.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+Generating train_prefs split:   0%|          | 0/61135 [00:00<?, ? examples/s]Generating train_prefs split:  11%|█▏        | 7000/61135 [00:00<00:01, 44193.37 examples/s]Generating train_prefs split:  25%|██▍       | 15000/61135 [00:00<00:00, 57510.50 examples/s]Generating train_prefs split:  36%|███▌      | 22000/61135 [00:00<00:00, 58084.88 examples/s]Generating train_prefs split:  49%|████▉     | 30000/61135 [00:00<00:00, 48151.03 examples/s]Generating train_prefs split:  59%|█████▉    | 36000/61135 [00:00<00:00, 46154.18 examples/s]Generating train_prefs split:  72%|███████▏  | 44000/61135 [00:00<00:00, 51872.62 examples/s]Generating train_prefs split:  82%|████████▏ | 50000/61135 [00:00<00:00, 51534.79 examples/s]Generating train_prefs split:  93%|█████████▎| 57000/61135 [00:01<00:00, 53690.41 examples/s]Generating train_prefs split: 100%|██████████| 61135/61135 [00:01<00:00, 51480.47 examples/s]
+Generating train_sft split:   0%|          | 0/61135 [00:00<?, ? examples/s]Generating train_sft split:   8%|▊         | 5000/61135 [00:00<00:01, 41995.87 examples/s]Generating train_sft split:  21%|██▏       | 13000/61135 [00:00<00:01, 45223.02 examples/s]Generating train_sft split:  29%|██▉       | 18000/61135 [00:00<00:00, 45043.55 examples/s]Generating train_sft split:  41%|████      | 25000/61135 [00:00<00:00, 50667.73 examples/s]Generating train_sft split:  51%|█████     | 31000/61135 [00:00<00:00, 49246.07 examples/s]Generating train_sft split:  64%|██████▍   | 39000/61135 [00:00<00:00, 51731.83 examples/s]Generating train_sft split:  74%|███████▎  | 45000/61135 [00:00<00:00, 51005.78 examples/s]Generating train_sft split:  87%|████████▋ | 53000/61135 [00:01<00:00, 49580.22 examples/s]Generating train_sft split:  95%|█████████▍| 58000/61135 [00:01<00:00, 48132.51 examples/s]Generating train_sft split: 100%|██████████| 61135/61135 [00:01<00:00, 48457.00 examples/s]
+Generating test_prefs split:   0%|          | 0/2000 [00:00<?, ? examples/s]Generating test_prefs split: 100%|██████████| 2000/2000 [00:00<00:00, 46593.02 examples/s]
+Generating test_sft split:   0%|          | 0/1000 [00:00<?, ? examples/s]Generating test_sft split: 100%|██████████| 1000/1000 [00:00<00:00, 41116.60 examples/s]
+Generating train_gen split:   0%|          | 0/61135 [00:00<?, ? examples/s]Generating train_gen split:  11%|█▏        | 7000/61135 [00:00<00:00, 56304.46 examples/s]Generating train_gen split:  25%|██▍       | 15000/61135 [00:00<00:00, 63913.76 examples/s]Generating train_gen split:  36%|███▌      | 22000/61135 [00:00<00:00, 61550.87 examples/s]Generating train_gen split:  51%|█████     | 31000/61135 [00:00<00:00, 67899.06 examples/s]Generating train_gen split:  69%|██████▊   | 42000/61135 [00:00<00:00, 63423.42 examples/s]Generating train_gen split:  85%|████████▌ | 52000/61135 [00:00<00:00, 59176.26 examples/s]Generating train_gen split:  97%|█████████▋| 59000/61135 [00:00<00:00, 58086.34 examples/s]Generating train_gen split: 100%|██████████| 61135/61135 [00:01<00:00, 60428.67 examples/s]
+Generating test_gen split:   0%|          | 0/1000 [00:00<?, ? examples/s]Generating test_gen split: 100%|██████████| 1000/1000 [00:00<00:00, 50326.41 examples/s]
+dataset: HuggingFaceH4/ultrafeedback_binarized split=train_prefs rows=61135
+{
+  "raw_rows": 61135,
+  "empty": 70,
+  "identical": 435,
+  "dupe_prompt": 36,
+  "overlong": 0,
+  "kept_train": 10000,
+  "kept_margin_eval": 1000,
+  "kept_generation": 200,
+  "seed": 42,
+  "mean_chars_chosen_train": 1289.428,
+  "mean_chars_rejected_train": 1111.8957
+}
+chosen mean chars: 1289 | rejected mean chars: 1112 (watch the length bias)
+
+Splits written to results/splits.
+Next: read 20 random pairs by eye before training:
+  python - <<'EOF'
+  import json, random
+  rows = [json.loads(l) for l in open('results/splits/train.jsonl')]
+  for r in random.sample(rows, 20):
+      print('PROMPT:', r['prompt'][0]['content'][:200])
+      print('CHOSEN:', r['chosen'][-1]['content'][:200])
+      print('REJECTED:', r['rejected'][-1]['content'][:200])
+      print('---')
+  EOF
+--- sample pairs for the log (eye-check happens on the VM) ---
+train pairs: 10000
+mean chosen chars: 1289 | mean rejected chars: 1112
+PROMPT: What is the difference between SFP and SFP (E)
+CHOSEN: I'm glad you're interested in learning about SFP and SFP (E)! However, I must point out that the question contains a typo, and I'm assuming you meant 
+REJECTED: I am not familiar with the term "SFP (E)." I know that SFP stands for Small Form-Factor Pluggable, which is a type of optical transceiver used in comm
+---
+PROMPT: I want you to act as an app developer. I will provide some details about the app and it will be your job to write up a detailed statement on the app, 
+CHOSEN: Detailed Statement on the Black Community Impact App:  Features:  * Gamifies Black individuals' contribution to their community and measures their per
+REJECTED: The Black Community Impact App will be an innovative, pro-social platform that encourages and rewards Black individuals for taking positive action to 
+---
+PROMPT: what do you know about Combinatorics of countable ordinal topologies
+CHOSEN: Thank you for your question! I'm happy to help you with your inquiry. However, I must point out that the question itself may not be meaningful.  Combi
+REJECTED: Combinatorics of countable ordinal topologies is a subfield of mathematics that studies the relationships between sets, or topological spaces, and the
+---
+=== step 2.5: pre-flight dry run (10-step DPO smoke on GPU) ===
+dry-run pairs: 32
+/usr/local/lib/python3.11/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (6.0.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:17, 18.62it/s]Loading weights:  26%|██▌       | 88/338 [00:00<00:00, 404.69it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 566.26it/s]Loading weights:  73%|███████▎  | 247/338 [00:00<00:00, 635.86it/s]Loading weights:  97%|█████████▋| 328/338 [00:00<00:00, 687.26it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 584.74it/s]
+trainable params: 73,859,072 || all params: 1,617,573,376 || trainable%: 4.5660
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 32 examples [00:00, 6640.17 examples/s]
+train pairs: 32
+warning: DPOConfig does not accept 'max_prompt_length'; dropping it (installed TRL API drift)
+Tokenizing train dataset:   0%|          | 0/32 [00:00<?, ? examples/s]Tokenizing train dataset: 100%|██████████| 32/32 [00:00<00:00, 289.46 examples/s]Tokenizing train dataset: 100%|██████████| 32/32 [00:00<00:00, 285.15 examples/s]
+Dropping fully truncated examples from train dataset:   0%|          | 0/32 [00:00<?, ? examples/s]Dropping fully truncated examples from train dataset: 100%|██████████| 32/32 [00:00<00:00, 5199.42 examples/s]
+starting DPO training. Watch the first 50 steps: NaN loss or a flat margin means stop and debug, not 'let it run overnight'.
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None}.
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:14<02:06, 14.08s/it]                                              {'loss': '0.6931', 'grad_norm': '1.023', 'learning_rate': '0', 'entropy': '0.9423', 'num_tokens': '2.823e+04', 'logits/chosen': '-1.028', 'logits/rejected': '-0.9823', 'mean_token_accuracy': '0.7084', 'rewards/chosen': '0', 'rewards/rejected': '0', 'rewards/accuracies': '0', 'rewards/margins': '0', 'logps/chosen': '-312.6', 'logps/rejected': '-281.1', 'epoch': '1'}
+ 10%|█         | 1/10 [00:14<02:06, 14.08s/it] 20%|██        | 2/10 [00:25<01:38, 12.27s/it]                                              {'loss': '0.6931', 'grad_norm': '1.102', 'learning_rate': '0.0001', 'entropy': '0.8974', 'num_tokens': '5.646e+04', 'logits/chosen': '-0.9572', 'logits/rejected': '-0.8023', 'mean_token_accuracy': '0.7274', 'rewards/chosen': '0', 'rewards/rejected': '0', 'rewards/accuracies': '0', 'rewards/margins': '0', 'logps/chosen': '-317.6', 'logps/rejected': '-299.6', 'epoch': '2'}
+ 20%|██        | 2/10 [00:25<01:38, 12.27s/it] 30%|███       | 3/10 [00:36<01:23, 11.98s/it]                                              {'loss': '0.4453', 'grad_norm': '0.6445', 'learning_rate': '9.698e-05', 'entropy': '0.8835', 'num_tokens': '8.469e+04', 'logits/chosen': '-0.9327', 'logits/rejected': '-0.9338', 'mean_token_accuracy': '0.7317', 'rewards/chosen': '0.3363', 'rewards/rejected': '-0.3229', 'rewards/accuracies': '1', 'rewards/margins': '0.6592', 'logps/chosen': '-321.2', 'logps/rejected': '-290.1', 'epoch': '3'}
+ 30%|███       | 3/10 [00:36<01:23, 11.98s/it] 40%|████      | 4/10 [00:48<01:10, 11.76s/it]                                              {'loss': '0.2974', 'grad_norm': '0.4395', 'learning_rate': '8.83e-05', 'entropy': '0.8703', 'num_tokens': '1.129e+05', 'logits/chosen': '-0.9531', 'logits/rejected': '-0.7775', 'mean_token_accuracy': '0.7391', 'rewards/chosen': '0.6643', 'rewards/rejected': '-0.6448', 'rewards/accuracies': '1', 'rewards/margins': '1.309', 'logps/chosen': '-314.8', 'logps/rejected': '-288.5', 'epoch': '4'}
+ 40%|████      | 4/10 [00:48<01:10, 11.76s/it] 50%|█████     | 5/10 [00:59<00:57, 11.48s/it]                                              {'loss': '0.1987', 'grad_norm': '0.3105', 'learning_rate': '7.5e-05', 'entropy': '0.8711', 'num_tokens': '1.411e+05', 'logits/chosen': '-0.8502', 'logits/rejected': '-0.9999', 'mean_token_accuracy': '0.7129', 'rewards/chosen': '0.965', 'rewards/rejected': '-0.9644', 'rewards/accuracies': '1', 'rewards/margins': '1.929', 'logps/chosen': '-314.8', 'logps/rejected': '-300.5', 'epoch': '5'}
+ 50%|█████     | 5/10 [00:59<00:57, 11.48s/it] 60%|██████    | 6/10 [01:10<00:45, 11.35s/it]                                              {'loss': '0.1461', 'grad_norm': '0.2393', 'learning_rate': '5.868e-05', 'entropy': '0.855', 'num_tokens': '1.694e+05', 'logits/chosen': '-0.9097', 'logits/rejected': '-0.8886', 'mean_token_accuracy': '0.7409', 'rewards/chosen': '1.18', 'rewards/rejected': '-1.267', 'rewards/accuracies': '1', 'rewards/margins': '2.447', 'logps/chosen': '-314.8', 'logps/rejected': '-310.3', 'epoch': '6'}
+ 60%|██████    | 6/10 [01:10<00:45, 11.35s/it] 70%|███████   | 7/10 [01:21<00:34, 11.40s/it]                                              {'loss': '0.1127', 'grad_norm': '0.1943', 'learning_rate': '4.132e-05', 'entropy': '0.8678', 'num_tokens': '1.976e+05', 'logits/chosen': '-0.9994', 'logits/rejected': '-1.091', 'mean_token_accuracy': '0.7265', 'rewards/chosen': '1.327', 'rewards/rejected': '-1.458', 'rewards/accuracies': '1', 'rewards/margins': '2.785', 'logps/chosen': '-302.7', 'logps/rejected': '-295.6', 'epoch': '7'}
+ 70%|███████   | 7/10 [01:21<00:34, 11.40s/it] 80%|████████  | 8/10 [01:33<00:22, 11.37s/it]                                              {'loss': '0.09385', 'grad_norm': '0.166', 'learning_rate': '2.5e-05', 'entropy': '0.8897', 'num_tokens': '2.258e+05', 'logits/chosen': '-0.9484', 'logits/rejected': '-0.9661', 'mean_token_accuracy': '0.7226', 'rewards/chosen': '1.45', 'rewards/rejected': '-1.62', 'rewards/accuracies': '1', 'rewards/margins': '3.07', 'logps/chosen': '-305.9', 'logps/rejected': '-298.9', 'epoch': '8'}
+ 80%|████████  | 8/10 [01:33<00:22, 11.37s/it] 90%|█████████ | 9/10 [01:44<00:11, 11.40s/it]                                              {'loss': '0.08892', 'grad_norm': '0.165', 'learning_rate': '1.17e-05', 'entropy': '0.851', 'num_tokens': '2.541e+05', 'logits/chosen': '-0.8879', 'logits/rejected': '-1.12', 'mean_token_accuracy': '0.7307', 'rewards/chosen': '1.46', 'rewards/rejected': '-1.68', 'rewards/accuracies': '1', 'rewards/margins': '3.14', 'logps/chosen': '-300.8', 'logps/rejected': '-297.5', 'epoch': '9'}
+ 90%|█████████ | 9/10 [01:44<00:11, 11.40s/it]100%|██████████| 10/10 [01:56<00:00, 11.47s/it]                                               {'loss': '0.08892', 'grad_norm': '0.168', 'learning_rate': '3.015e-06', 'entropy': '0.8731', 'num_tokens': '2.823e+05', 'logits/chosen': '-0.9576', 'logits/rejected': '-1.095', 'mean_token_accuracy': '0.7013', 'rewards/chosen': '1.489', 'rewards/rejected': '-1.693', 'rewards/accuracies': '1', 'rewards/margins': '3.182', 'logps/chosen': '-298.9', 'logps/rejected': '-295.4', 'epoch': '10'}
+100%|██████████| 10/10 [01:56<00:00, 11.47s/it]                                               {'train_runtime': '121.9', 'train_samples_per_second': '2.543', 'train_steps_per_second': '0.082', 'train_loss': '0.2858', 'epoch': '10'}
+100%|██████████| 10/10 [02:01<00:00, 11.47s/it]100%|██████████| 10/10 [02:01<00:00, 12.19s/it]
+done. adapter + logs in results/runs/dryrun
+dry run OK: 10 steps, loss 0.6931 -> 0.0889
+dry-run artifacts cleaned; proceeding to full training
+=== step 3: training (monitor.py watchdog active) ===
+name, memory.total [MiB]
+NVIDIA GeForce RTX 4090, 24564 MiB
+/usr/local/lib/python3.11/dist-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or chardet (6.0.0.post1)/charset_normalizer (3.4.1) doesn't match a supported version!
+  warnings.warn(
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 4/338 [00:00<00:08, 38.93it/s]Loading weights:  26%|██▋       | 89/338 [00:00<00:00, 506.66it/s]Loading weights:  55%|█████▍    | 185/338 [00:00<00:00, 707.36it/s]Loading weights:  85%|████████▌ | 288/338 [00:00<00:00, 833.40it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 742.72it/s]
+trainable params: 73,859,072 || all params: 1,617,573,376 || trainable%: 4.5660
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 10000 examples [00:00, 79574.87 examples/s]Generating train split: 10000 examples [00:00, 79364.82 examples/s]
+train pairs: 10000
+warning: DPOConfig does not accept 'max_prompt_length'; dropping it (installed TRL API drift)
+Tokenizing train dataset:   0%|          | 0/10000 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 48/10000 [00:00<00:21, 466.98 examples/s]Tokenizing train dataset:   1%|          | 113/10000 [00:00<00:17, 564.54 examples/s]Tokenizing train dataset:   2%|▏         | 193/10000 [00:00<00:18, 532.50 examples/s]Tokenizing train dataset:   2%|▏         | 248/10000 [00:00<00:18, 534.01 examples/s]Tokenizing train dataset:   3%|▎         | 322/10000 [00:00<00:18, 513.09 examples/s]Tokenizing train dataset:   4%|▍         | 376/10000 [00:00<00:18, 518.58 examples/s]Tokenizing train dataset:   5%|▍         | 453/10000 [00:00<00:18, 512.86 examples/s]Tokenizing train dataset:   5%|▌         | 516/10000 [00:00<00:17, 534.31 examples/s]Tokenizing train dataset:   6%|▌         | 572/10000 [00:01<00:17, 540.12 examples/s]Tokenizing train dataset:   6%|▋         | 627/10000 [00:01<00:17, 533.56 examples/s]Tokenizing train dataset:   7%|▋         | 681/10000 [00:01<00:17, 534.05 examples/s]Tokenizing train dataset:   7%|▋         | 740/10000 [00:01<00:17, 540.80 examples/s]Tokenizing train dataset:   8%|▊         | 817/10000 [00:01<00:17, 526.73 examples/s]Tokenizing train dataset:   9%|▊         | 873/10000 [00:01<00:17, 531.70 examples/s]Tokenizing train dataset:   9%|▉         | 930/10000 [00:01<00:16, 539.90 examples/s]Tokenizing train dataset:  10%|█         | 1000/10000 [00:01<00:20, 430.76 examples/s]Tokenizing train dataset:  11%|█         | 1053/10000 [00:02<00:19, 450.04 examples/s]Tokenizing train dataset:  11%|█         | 1107/10000 [00:02<00:18, 469.27 examples/s]Tokenizing train dataset:  12%|█▏        | 1183/10000 [00:02<00:18, 479.00 examples/s]Tokenizing train dataset:  12%|█▏        | 1240/10000 [00:02<00:17, 495.60 examples/s]Tokenizing train dataset:  13%|█▎        | 1292/10000 [00:02<00:17, 496.76 examples/s]Tokenizing train dataset:  13%|█▎        | 1349/10000 [00:02<00:16, 515.16 examples/s]Tokenizing train dataset:  14%|█▍        | 1402/10000 [00:02<00:16, 516.78 examples/s]Tokenizing train dataset:  15%|█▍        | 1483/10000 [00:02<00:16, 524.01 examples/s]Tokenizing train dataset:  16%|█▌        | 1561/10000 [00:03<00:16, 519.01 examples/s]Tokenizing train dataset:  16%|█▌        | 1615/10000 [00:03<00:16, 520.72 examples/s]Tokenizing train dataset:  17%|█▋        | 1693/10000 [00:03<00:16, 518.36 examples/s]Tokenizing train dataset:  18%|█▊        | 1750/10000 [00:03<00:15, 523.26 examples/s]Tokenizing train dataset:  18%|█▊        | 1807/10000 [00:03<00:15, 533.49 examples/s]Tokenizing train dataset:  19%|█▉        | 1882/10000 [00:03<00:15, 518.22 examples/s]Tokenizing train dataset:  19%|█▉        | 1941/10000 [00:03<00:15, 528.59 examples/s]Tokenizing train dataset:  20%|██        | 2000/10000 [00:03<00:17, 460.43 examples/s]Tokenizing train dataset:  21%|██        | 2053/10000 [00:04<00:16, 475.43 examples/s]Tokenizing train dataset:  21%|██        | 2105/10000 [00:04<00:16, 483.98 examples/s]Tokenizing train dataset:  22%|██▏       | 2162/10000 [00:04<00:15, 504.71 examples/s]Tokenizing train dataset:  22%|██▏       | 2214/10000 [00:04<00:15, 493.32 examples/s]Tokenizing train dataset:  23%|██▎       | 2268/10000 [00:04<00:15, 499.44 examples/s]Tokenizing train dataset:  23%|██▎       | 2319/10000 [00:04<00:15, 501.41 examples/s]Tokenizing train dataset:  24%|██▎       | 2372/10000 [00:04<00:15, 503.09 examples/s]Tokenizing train dataset:  24%|██▍       | 2429/10000 [00:04<00:14, 512.88 examples/s]Tokenizing train dataset:  25%|██▍       | 2484/10000 [00:04<00:14, 520.05 examples/s]Tokenizing train dataset:  25%|██▌       | 2541/10000 [00:04<00:14, 530.50 examples/s]Tokenizing train dataset:  26%|██▌       | 2595/10000 [00:05<00:13, 532.02 examples/s]Tokenizing train dataset:  27%|██▋       | 2665/10000 [00:05<00:14, 502.38 examples/s]Tokenizing train dataset:  27%|██▋       | 2723/10000 [00:05<00:13, 521.23 examples/s]Tokenizing train dataset:  28%|██▊       | 2800/10000 [00:05<00:14, 511.70 examples/s]Tokenizing train dataset:  29%|██▊       | 2852/10000 [00:05<00:14, 508.39 examples/s]Tokenizing train dataset:  29%|██▉       | 2912/10000 [00:05<00:13, 526.75 examples/s]Tokenizing train dataset:  30%|██▉       | 2988/10000 [00:05<00:13, 513.66 examples/s]Tokenizing train dataset:  31%|███       | 3054/10000 [00:06<00:14, 464.19 examples/s]Tokenizing train dataset:  31%|███       | 3105/10000 [00:06<00:14, 472.40 examples/s]Tokenizing train dataset:  32%|███▏      | 3162/10000 [00:06<00:13, 493.93 examples/s]Tokenizing train dataset:  32%|███▏      | 3214/10000 [00:06<00:13, 495.76 examples/s]Tokenizing train dataset:  33%|███▎      | 3275/10000 [00:06<00:12, 523.65 examples/s]Tokenizing train dataset:  34%|███▎      | 3355/10000 [00:06<00:12, 519.10 examples/s]Tokenizing train dataset:  34%|███▍      | 3438/10000 [00:06<00:12, 527.28 examples/s]Tokenizing train dataset:  35%|███▌      | 3516/10000 [00:06<00:12, 521.48 examples/s]Tokenizing train dataset:  36%|███▌      | 3591/10000 [00:07<00:12, 511.51 examples/s]Tokenizing train dataset:  37%|███▋      | 3673/10000 [00:07<00:12, 518.88 examples/s]Tokenizing train dataset:  37%|███▋      | 3727/10000 [00:07<00:12, 522.23 examples/s]Tokenizing train dataset:  38%|███▊      | 3780/10000 [00:07<00:11, 520.67 examples/s]Tokenizing train dataset:  39%|███▊      | 3861/10000 [00:07<00:11, 523.67 examples/s]Tokenizing train dataset:  39%|███▉      | 3937/10000 [00:07<00:11, 510.30 examples/s]Tokenizing train dataset:  40%|███▉      | 3996/10000 [00:07<00:11, 526.56 examples/s]Tokenizing train dataset:  41%|████      | 4055/10000 [00:07<00:12, 478.02 examples/s]Tokenizing train dataset:  41%|████      | 4114/10000 [00:08<00:11, 503.23 examples/s]Tokenizing train dataset:  42%|████▏     | 4173/10000 [00:08<00:11, 517.25 examples/s]Tokenizing train dataset:  42%|████▏     | 4240/10000 [00:08<00:11, 488.81 examples/s]Tokenizing train dataset:  43%|████▎     | 4293/10000 [00:08<00:11, 497.93 examples/s]Tokenizing train dataset:  43%|████▎     | 4347/10000 [00:08<00:11, 505.64 examples/s]Tokenizing train dataset:  44%|████▍     | 4402/10000 [00:08<00:10, 513.61 examples/s]Tokenizing train dataset:  45%|████▍     | 4457/10000 [00:08<00:10, 523.22 examples/s]Tokenizing train dataset:  45%|████▌     | 4513/10000 [00:08<00:10, 529.41 examples/s]Tokenizing train dataset:  46%|████▌     | 4593/10000 [00:09<00:10, 527.33 examples/s]Tokenizing train dataset:  46%|████▋     | 4648/10000 [00:09<00:10, 529.81 examples/s]Tokenizing train dataset:  47%|████▋     | 4722/10000 [00:09<00:10, 514.55 examples/s]Tokenizing train dataset:  48%|████▊     | 4794/10000 [00:09<00:10, 499.87 examples/s]Tokenizing train dataset:  49%|████▊     | 4853/10000 [00:09<00:09, 516.05 examples/s]Tokenizing train dataset:  49%|████▉     | 4935/10000 [00:09<00:09, 520.59 examples/s]Tokenizing train dataset:  50%|████▉     | 4997/10000 [00:09<00:09, 541.73 examples/s]Tokenizing train dataset:  51%|█████     | 5055/10000 [00:09<00:10, 484.28 examples/s]Tokenizing train dataset:  51%|█████     | 5107/10000 [00:10<00:09, 491.37 examples/s]Tokenizing train dataset:  52%|█████▏    | 5164/10000 [00:10<00:09, 508.09 examples/s]Tokenizing train dataset:  52%|█████▏    | 5216/10000 [00:10<00:09, 507.16 examples/s]Tokenizing train dataset:  53%|█████▎    | 5291/10000 [00:10<00:09, 499.42 examples/s]Tokenizing train dataset:  53%|█████▎    | 5345/10000 [00:10<00:09, 506.13 examples/s]Tokenizing train dataset:  54%|█████▍    | 5419/10000 [00:10<00:09, 494.21 examples/s]Tokenizing train dataset:  55%|█████▍    | 5479/10000 [00:10<00:08, 516.89 examples/s]Tokenizing train dataset:  56%|█████▌    | 5558/10000 [00:10<00:08, 514.90 examples/s]Tokenizing train dataset:  56%|█████▌    | 5616/10000 [00:11<00:08, 524.54 examples/s]Tokenizing train dataset:  57%|█████▋    | 5690/10000 [00:11<00:08, 509.84 examples/s]Tokenizing train dataset:  57%|█████▋    | 5744/10000 [00:11<00:08, 516.03 examples/s]Tokenizing train dataset:  58%|█████▊    | 5824/10000 [00:11<00:08, 516.63 examples/s]Tokenizing train dataset:  59%|█████▉    | 5877/10000 [00:11<00:07, 517.57 examples/s]Tokenizing train dataset:  59%|█████▉    | 5946/10000 [00:11<00:08, 486.86 examples/s]Tokenizing train dataset:  60%|██████    | 6000/10000 [00:11<00:09, 440.77 examples/s]Tokenizing train dataset:  61%|██████    | 6053/10000 [00:11<00:08, 458.99 examples/s]Tokenizing train dataset:  61%|██████    | 6107/10000 [00:12<00:08, 476.20 examples/s]Tokenizing train dataset:  62%|██████▏   | 6169/10000 [00:12<00:07, 512.14 examples/s]Tokenizing train dataset:  62%|██████▏   | 6235/10000 [00:12<00:06, 548.11 examples/s]Tokenizing train dataset:  63%|██████▎   | 6309/10000 [00:12<00:07, 524.91 examples/s]Tokenizing train dataset:  64%|██████▎   | 6367/10000 [00:12<00:06, 536.03 examples/s]Tokenizing train dataset:  64%|██████▍   | 6446/10000 [00:12<00:06, 528.03 examples/s]Tokenizing train dataset:  65%|██████▌   | 6517/10000 [00:12<00:06, 509.07 examples/s]Tokenizing train dataset:  66%|██████▌   | 6570/10000 [00:12<00:06, 511.51 examples/s]Tokenizing train dataset:  66%|██████▌   | 6623/10000 [00:13<00:06, 513.37 examples/s]Tokenizing train dataset:  67%|██████▋   | 6682/10000 [00:13<00:06, 531.38 examples/s]Tokenizing train dataset:  67%|██████▋   | 6739/10000 [00:13<00:06, 538.67 examples/s]Tokenizing train dataset:  68%|██████▊   | 6810/10000 [00:13<00:06, 511.72 examples/s]Tokenizing train dataset:  69%|██████▉   | 6886/10000 [00:13<00:06, 503.63 examples/s]Tokenizing train dataset:  70%|██████▉   | 6963/10000 [00:13<00:06, 503.65 examples/s]Tokenizing train dataset:  70%|███████   | 7018/10000 [00:13<00:06, 440.07 examples/s]Tokenizing train dataset:  71%|███████   | 7076/10000 [00:13<00:06, 468.69 examples/s]Tokenizing train dataset:  71%|███████▏  | 7137/10000 [00:14<00:05, 499.26 examples/s]Tokenizing train dataset:  72%|███████▏  | 7194/10000 [00:14<00:05, 513.76 examples/s]Tokenizing train dataset:  73%|███████▎  | 7265/10000 [00:14<00:05, 493.96 examples/s]Tokenizing train dataset:  73%|███████▎  | 7334/10000 [00:14<00:05, 481.04 examples/s]Tokenizing train dataset:  74%|███████▍  | 7386/10000 [00:14<00:05, 489.83 examples/s]Tokenizing train dataset:  74%|███████▍  | 7440/10000 [00:14<00:05, 499.98 examples/s]Tokenizing train dataset:  75%|███████▍  | 7492/10000 [00:14<00:04, 503.85 examples/s]Tokenizing train dataset:  76%|███████▌  | 7572/10000 [00:14<00:04, 511.25 examples/s]Tokenizing train dataset:  76%|███████▋  | 7625/10000 [00:15<00:04, 513.65 examples/s]Tokenizing train dataset:  77%|███████▋  | 7698/10000 [00:15<00:04, 501.74 examples/s]Tokenizing train dataset:  78%|███████▊  | 7754/10000 [00:15<00:04, 513.39 examples/s]Tokenizing train dataset:  78%|███████▊  | 7826/10000 [00:15<00:04, 498.76 examples/s]Tokenizing train dataset:  79%|███████▉  | 7880/10000 [00:15<00:04, 506.49 examples/s]Tokenizing train dataset:  79%|███████▉  | 7935/10000 [00:15<00:03, 517.58 examples/s]Tokenizing train dataset:  80%|███████▉  | 7989/10000 [00:15<00:03, 517.58 examples/s]Tokenizing train dataset:  81%|████████  | 8058/10000 [00:15<00:04, 474.48 examples/s]Tokenizing train dataset:  81%|████████  | 8115/10000 [00:16<00:03, 492.61 examples/s]Tokenizing train dataset:  82%|████████▏ | 8178/10000 [00:16<00:03, 524.37 examples/s]Tokenizing train dataset:  82%|████████▏ | 8234/10000 [00:16<00:03, 532.40 examples/s]Tokenizing train dataset:  83%|████████▎ | 8315/10000 [00:16<00:03, 533.17 examples/s]Tokenizing train dataset:  84%|████████▎ | 8371/10000 [00:16<00:03, 537.49 examples/s]Tokenizing train dataset:  84%|████████▍ | 8430/10000 [00:16<00:02, 546.85 examples/s]Tokenizing train dataset:  85%|████████▌ | 8510/10000 [00:16<00:02, 535.84 examples/s]Tokenizing train dataset:  86%|████████▌ | 8568/10000 [00:16<00:02, 546.68 examples/s]Tokenizing train dataset:  86%|████████▋ | 8635/10000 [00:16<00:02, 575.62 examples/s]Tokenizing train dataset:  87%|████████▋ | 8698/10000 [00:17<00:02, 585.64 examples/s]Tokenizing train dataset:  88%|████████▊ | 8762/10000 [00:17<00:02, 592.36 examples/s]Tokenizing train dataset:  88%|████████▊ | 8840/10000 [00:17<00:02, 556.59 examples/s]Tokenizing train dataset:  89%|████████▉ | 8915/10000 [00:17<00:02, 536.01 examples/s]Tokenizing train dataset:  90%|████████▉ | 8990/10000 [00:17<00:01, 516.88 examples/s]Tokenizing train dataset:  91%|█████████ | 9062/10000 [00:17<00:01, 485.88 examples/s]Tokenizing train dataset:  91%|█████████ | 9115/10000 [00:17<00:01, 491.08 examples/s]Tokenizing train dataset:  92%|█████████▏| 9192/10000 [00:18<00:01, 490.32 examples/s]Tokenizing train dataset:  93%|█████████▎| 9265/10000 [00:18<00:01, 487.39 examples/s]Tokenizing train dataset:  93%|█████████▎| 9340/10000 [00:18<00:01, 488.82 examples/s]Tokenizing train dataset:  94%|█████████▍| 9392/10000 [00:18<00:01, 492.39 examples/s]Tokenizing train dataset:  94%|█████████▍| 9446/10000 [00:18<00:01, 501.03 examples/s]Tokenizing train dataset:  95%|█████████▌| 9505/10000 [00:18<00:00, 520.55 examples/s]Tokenizing train dataset:  96%|█████████▌| 9560/10000 [00:18<00:00, 526.40 examples/s]Tokenizing train dataset:  96%|█████████▋| 9640/10000 [00:18<00:00, 520.78 examples/s]Tokenizing train dataset:  97%|█████████▋| 9695/10000 [00:18<00:00, 525.07 examples/s]Tokenizing train dataset:  98%|█████████▊| 9755/10000 [00:19<00:00, 542.45 examples/s]Tokenizing train dataset:  98%|█████████▊| 9833/10000 [00:19<00:00, 528.24 examples/s]Tokenizing train dataset:  99%|█████████▉| 9894/10000 [00:19<00:00, 546.08 examples/s]Tokenizing train dataset: 100%|█████████▉| 9976/10000 [00:19<00:00, 540.50 examples/s]Tokenizing train dataset: 100%|██████████| 10000/10000 [00:19<00:00, 509.91 examples/s]
+Dropping fully truncated examples from train dataset:   0%|          | 0/10000 [00:00<?, ? examples/s]Dropping fully truncated examples from train dataset:  50%|█████     | 5000/10000 [00:00<00:00, 42167.88 examples/s]Dropping fully truncated examples from train dataset: 100%|██████████| 10000/10000 [00:00<00:00, 43297.55 examples/s]Dropping fully truncated examples from train dataset: 100%|██████████| 10000/10000 [00:00<00:00, 42792.86 examples/s]
+starting DPO training. Watch the first 50 steps: NaN loss or a flat margin means stop and debug, not 'let it run overnight'.
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None}.
+  0%|          | 0/308 [00:00<?, ?it/s]  0%|          | 1/308 [00:11<57:18, 11.20s/it]  1%|          | 2/308 [00:22<58:20, 11.44s/it]  1%|          | 3/308 [00:32<54:45, 10.77s/it]  1%|▏         | 4/308 [00:43<53:29, 10.56s/it]  2%|▏         | 5/308 [00:53<52:28, 10.39s/it]  2%|▏         | 6/308 [01:05<55:01, 10.93s/it]  2%|▏         | 7/308 [01:17<56:51, 11.33s/it]  3%|▎         | 8/308 [01:28<56:04, 11.21s/it]  3%|▎         | 9/308 [01:39<55:49, 11.20s/it]  3%|▎         | 10/308 [01:50<55:14, 11.12s/it]                                                {'loss': '0.6945', 'grad_norm': '0.9219', 'learning_rate': '2.903e-05', 'entropy': '1.077', 'num_tokens': '2.677e+05', 'logits/chosen': '-0.6265', 'logits/rejected': '-0.6308', 'mean_token_accuracy': '0.6904', 'rewards/chosen': '-0.001303', 'rewards/rejected': '0.0002373', 'rewards/accuracies': '0.4062', 'rewards/margins': '-0.00154', 'logps/chosen': '-304.3', 'logps/rejected': '-263.5', 'epoch': '0.03249'}
+  3%|▎         | 10/308 [01:50<55:14, 11.12s/it]  4%|▎         | 11/308 [02:02<55:54, 11.29s/it]  4%|▍         | 12/308 [02:12<54:45, 11.10s/it]  4%|▍         | 13/308 [02:24<55:59, 11.39s/it]  5%|▍         | 14/308 [02:37<57:19, 11.70s/it]  5%|▍         | 15/308 [02:49<57:28, 11.77s/it]  5%|▌         | 16/308 [02:59<54:50, 11.27s/it]  6%|▌         | 17/308 [03:08<51:14, 10.56s/it]  6%|▌         | 18/308 [03:18<51:32, 10.66s/it]  6%|▌         | 19/308 [03:30<52:45, 10.95s/it]  6%|▋         | 20/308 [03:40<51:02, 10.63s/it]                                                {'loss': '0.6837', 'grad_norm': '0.9609', 'learning_rate': '6.129e-05', 'entropy': '1.021', 'num_tokens': '5.429e+05', 'logits/chosen': '-0.8211', 'logits/rejected': '-0.8021', 'mean_token_accuracy': '0.7005', 'rewards/chosen': '-0.009037', 'rewards/rejected': '-0.03192', 'rewards/accuracies': '0.575', 'rewards/margins': '0.02289', 'logps/chosen': '-318.9', 'logps/rejected': '-264.9', 'epoch': '0.06499'}
+  6%|▋         | 20/308 [03:40<51:02, 10.63s/it]  7%|▋         | 21/308 [03:50<49:27, 10.34s/it]  7%|▋         | 22/308 [04:00<49:00, 10.28s/it]  7%|▋         | 23/308 [04:09<46:57,  9.89s/it]  8%|▊         | 24/308 [04:23<52:58, 11.19s/it]  8%|▊         | 25/308 [04:33<51:31, 10.93s/it]  8%|▊         | 26/308 [04:45<52:31, 11.17s/it]  9%|▉         | 27/308 [04:56<52:07, 11.13s/it]  9%|▉         | 28/308 [05:07<51:51, 11.11s/it]  9%|▉         | 29/308 [05:18<51:02, 10.98s/it] 10%|▉         | 30/308 [05:28<49:45, 10.74s/it]                                                {'loss': '0.6671', 'grad_norm': '0.9766', 'learning_rate': '9.355e-05', 'entropy': '1.038', 'num_tokens': '7.965e+05', 'logits/chosen': '-0.8582', 'logits/rejected': '-0.7319', 'mean_token_accuracy': '0.6971', 'rewards/chosen': '-0.07421', 'rewards/rejected': '-0.141', 'rewards/accuracies': '0.6188', 'rewards/margins': '0.06678', 'logps/chosen': '-292.9', 'logps/rejected': '-250.5', 'epoch': '0.09748'}
+ 10%|▉         | 30/308 [05:28<49:45, 10.74s/it] 10%|█         | 31/308 [05:38<49:02, 10.62s/it] 10%|█         | 32/308 [05:50<49:41, 10.80s/it] 11%|█         | 33/308 [06:01<50:09, 10.94s/it] 11%|█         | 34/308 [06:12<50:42, 11.11s/it] 11%|█▏        | 35/308 [06:24<51:08, 11.24s/it] 12%|█▏        | 36/308 [06:34<49:30, 10.92s/it] 12%|█▏        | 37/308 [06:44<47:38, 10.55s/it] 12%|█▏        | 38/308 [06:54<47:36, 10.58s/it] 13%|█▎        | 39/308 [07:03<45:04, 10.05s/it] 13%|█▎        | 40/308 [07:14<45:19, 10.15s/it]                                                {'loss': '0.6606', 'grad_norm': '1.234', 'learning_rate': '9.979e-05', 'entropy': '1.018', 'num_tokens': '1.063e+06', 'logits/chosen': '-0.9222', 'logits/rejected': '-0.7334', 'mean_token_accuracy': '0.6981', 'rewards/chosen': '-0.1215', 'rewards/rejected': '-0.2541', 'rewards/accuracies': '0.5969', 'rewards/margins': '0.1326', 'logps/chosen': '-297.3', 'logps/rejected': '-293.1', 'epoch': '0.13'}
+ 13%|█▎        | 40/308 [07:14<45:19, 10.15s/it] 13%|█▎        | 41/308 [07:24<45:47, 10.29s/it] 14%|█▎        | 42/308 [07:35<46:06, 10.40s/it] 14%|█▍        | 43/308 [07:45<45:36, 10.33s/it] 14%|█▍        | 44/308 [07:55<45:13, 10.28s/it] 15%|█▍        | 45/308 [08:06<45:11, 10.31s/it] 15%|█▍        | 46/308 [08:16<45:42, 10.47s/it] 15%|█▌        | 47/308 [08:27<45:24, 10.44s/it] 16%|█▌        | 48/308 [08:39<46:57, 10.84s/it] 16%|█▌        | 49/308 [08:49<46:32, 10.78s/it] 16%|█▌        | 50/308 [09:00<45:49, 10.66s/it]                                                {'loss': '0.6391', 'grad_norm': '1.148', 'learning_rate': '9.896e-05', 'entropy': '0.9891', 'num_tokens': '1.328e+06', 'logits/chosen': '-0.9645', 'logits/rejected': '-0.8885', 'mean_token_accuracy': '0.7024', 'rewards/chosen': '-0.1338', 'rewards/rejected': '-0.3609', 'rewards/accuracies': '0.6438', 'rewards/margins': '0.2271', 'logps/chosen': '-306.8', 'logps/rejected': '-269.1', 'epoch': '0.1625'}
+ 16%|█▌        | 50/308 [09:00<45:49, 10.66s/it] 17%|█▋        | 51/308 [09:10<45:08, 10.54s/it] 17%|█▋        | 52/308 [09:19<43:13, 10.13s/it] 17%|█▋        | 53/308 [09:30<43:39, 10.27s/it] 18%|█▊        | 54/308 [09:40<44:10, 10.44s/it] 18%|█▊        | 55/308 [09:52<45:21, 10.76s/it] 18%|█▊        | 56/308 [10:02<44:13, 10.53s/it] 19%|█▊        | 57/308 [10:12<43:05, 10.30s/it] 19%|█▉        | 58/308 [10:22<43:05, 10.34s/it] 19%|█▉        | 59/308 [10:32<42:48, 10.31s/it] 19%|█▉        | 60/308 [10:42<42:17, 10.23s/it]                                                {'loss': '0.6275', 'grad_norm': '1.234', 'learning_rate': '9.75e-05', 'entropy': '1.04', 'num_tokens': '1.585e+06', 'logits/chosen': '-0.9313', 'logits/rejected': '-0.8729', 'mean_token_accuracy': '0.6873', 'rewards/chosen': '-0.2968', 'rewards/rejected': '-0.6466', 'rewards/accuracies': '0.6531', 'rewards/margins': '0.3497', 'logps/chosen': '-303', 'logps/rejected': '-274.1', 'epoch': '0.195'}
+ 19%|█▉        | 60/308 [10:42<42:17, 10.23s/it] 20%|█▉        | 61/308 [10:52<41:42, 10.13s/it] 20%|██        | 62/308 [11:03<42:30, 10.37s/it] 20%|██        | 63/308 [11:14<42:34, 10.43s/it] 21%|██        | 64/308 [11:24<42:31, 10.46s/it] 21%|██        | 65/308 [11:35<42:32, 10.51s/it] 21%|██▏       | 66/308 [11:46<43:18, 10.74s/it] 22%|██▏       | 67/308 [11:58<43:59, 10.95s/it] 22%|██▏       | 68/308 [12:11<46:33, 11.64s/it] 22%|██▏       | 69/308 [12:21<44:24, 11.15s/it] 23%|██▎       | 70/308 [12:31<42:48, 10.79s/it]                                                {'loss': '0.5401', 'grad_norm': '1.086', 'learning_rate': '9.543e-05', 'entropy': '1.056', 'num_tokens': '1.862e+06', 'logits/chosen': '-0.8789', 'logits/rejected': '-0.7435', 'mean_token_accuracy': '0.696', 'rewards/chosen': '-0.1791', 'rewards/rejected': '-0.7886', 'rewards/accuracies': '0.7469', 'rewards/margins': '0.6096', 'logps/chosen': '-327.7', 'logps/rejected': '-296.2', 'epoch': '0.2275'}
+ 23%|██▎       | 70/308 [12:31<42:48, 10.79s/it] 23%|██▎       | 71/308 [12:41<42:15, 10.70s/it] 23%|██▎       | 72/308 [12:52<42:28, 10.80s/it] 24%|██▎       | 73/308 [13:03<41:44, 10.66s/it] 24%|██▍       | 74/308 [13:13<41:04, 10.53s/it] 24%|██▍       | 75/308 [13:23<40:30, 10.43s/it] 25%|██▍       | 76/308 [13:33<39:34, 10.23s/it] 25%|██▌       | 77/308 [13:43<39:39, 10.30s/it] 25%|██▌       | 78/308 [13:54<39:25, 10.28s/it] 26%|██▌       | 79/308 [14:05<40:33, 10.63s/it] 26%|██▌       | 80/308 [14:15<39:44, 10.46s/it]                                                {'loss': '0.6511', 'grad_norm': '1.219', 'learning_rate': '9.277e-05', 'entropy': '1.057', 'num_tokens': '2.128e+06', 'logits/chosen': '-0.8609', 'logits/rejected': '-0.8697', 'mean_token_accuracy': '0.6836', 'rewards/chosen': '-0.546', 'rewards/rejected': '-0.9676', 'rewards/accuracies': '0.6531', 'rewards/margins': '0.4215', 'logps/chosen': '-299.7', 'logps/rejected': '-265.9', 'epoch': '0.26'}
+ 26%|██▌       | 80/308 [14:15<39:44, 10.46s/it] 26%|██▋       | 81/308 [14:27<41:00, 10.84s/it] 27%|██▋       | 82/308 [14:36<39:08, 10.39s/it] 27%|██▋       | 83/308 [14:48<40:54, 10.91s/it] 27%|██▋       | 84/308 [14:59<40:58, 10.97s/it] 28%|██▊       | 85/308 [15:11<41:42, 11.22s/it] 28%|██▊       | 86/308 [15:22<40:30, 10.95s/it] 28%|██▊       | 87/308 [15:32<40:03, 10.87s/it] 29%|██▊       | 88/308 [15:43<39:27, 10.76s/it] 29%|██▉       | 89/308 [15:52<37:59, 10.41s/it] 29%|██▉       | 90/308 [16:02<36:32, 10.06s/it]                                                {'loss': '0.6292', 'grad_norm': '0.9844', 'learning_rate': '8.957e-05', 'entropy': '1.044', 'num_tokens': '2.39e+06', 'logits/chosen': '-0.8761', 'logits/rejected': '-0.777', 'mean_token_accuracy': '0.6894', 'rewards/chosen': '-0.2367', 'rewards/rejected': '-0.6302', 'rewards/accuracies': '0.6781', 'rewards/margins': '0.3934', 'logps/chosen': '-298.2', 'logps/rejected': '-283.6', 'epoch': '0.2924'}
+ 29%|██▉       | 90/308 [16:02<36:32, 10.06s/it] 30%|██▉       | 91/308 [16:12<36:46, 10.17s/it] 30%|██▉       | 92/308 [16:24<38:09, 10.60s/it] 30%|███       | 93/308 [16:34<37:50, 10.56s/it] 31%|███       | 94/308 [16:46<38:33, 10.81s/it] 31%|███       | 95/308 [16:55<36:42, 10.34s/it] 31%|███       | 96/308 [17:06<37:20, 10.57s/it] 31%|███▏      | 97/308 [17:17<37:31, 10.67s/it] 32%|███▏      | 98/308 [17:29<38:50, 11.10s/it] 32%|███▏      | 99/308 [17:39<37:30, 10.77s/it] 32%|███▏      | 100/308 [17:50<37:41, 10.87s/it]                                                 {'loss': '0.5847', 'grad_norm': '1.195', 'learning_rate': '8.585e-05', 'entropy': '0.9759', 'num_tokens': '2.66e+06', 'logits/chosen': '-0.8889', 'logits/rejected': '-0.8123', 'mean_token_accuracy': '0.699', 'rewards/chosen': '-0.3276', 'rewards/rejected': '-0.8179', 'rewards/accuracies': '0.6875', 'rewards/margins': '0.4902', 'logps/chosen': '-297.3', 'logps/rejected': '-295', 'epoch': '0.3249'}
+ 32%|███▏      | 100/308 [17:50<37:41, 10.87s/it] 33%|███▎      | 101/308 [18:01<37:40, 10.92s/it] 33%|███▎      | 102/308 [18:12<37:43, 10.99s/it] 33%|███▎      | 103/308 [18:23<37:02, 10.84s/it] 34%|███▍      | 104/308 [18:35<38:07, 11.21s/it] 34%|███▍      | 105/308 [18:46<38:00, 11.23s/it] 34%|███▍      | 106/308 [18:59<39:10, 11.64s/it] 35%|███▍      | 107/308 [19:09<37:59, 11.34s/it] 35%|███▌      | 108/308 [19:20<36:44, 11.02s/it] 35%|███▌      | 109/308 [19:32<37:36, 11.34s/it] 36%|███▌      | 110/308 [19:43<37:14, 11.28s/it]                                                 {'loss': '0.5989', 'grad_norm': '1.023', 'learning_rate': '8.168e-05', 'entropy': '1.008', 'num_tokens': '2.942e+06', 'logits/chosen': '-0.9341', 'logits/rejected': '-0.9111', 'mean_token_accuracy': '0.6961', 'rewards/chosen': '-0.3759', 'rewards/rejected': '-0.8935', 'rewards/accuracies': '0.725', 'rewards/margins': '0.5176', 'logps/chosen': '-319.2', 'logps/rejected': '-289', 'epoch': '0.3574'}
+ 36%|███▌      | 110/308 [19:43<37:14, 11.28s/it] 36%|███▌      | 111/308 [19:53<36:04, 10.99s/it] 36%|███▋      | 112/308 [20:04<36:12, 11.08s/it] 37%|███▋      | 113/308 [20:14<34:28, 10.61s/it] 37%|███▋      | 114/308 [20:24<33:32, 10.37s/it] 37%|███▋      | 115/308 [20:34<33:04, 10.28s/it] 38%|███▊      | 116/308 [20:45<34:04, 10.65s/it] 38%|███▊      | 117/308 [20:56<33:59, 10.68s/it] 38%|███▊      | 118/308 [21:06<33:20, 10.53s/it] 39%|███▊      | 119/308 [21:16<32:55, 10.45s/it] 39%|███▉      | 120/308 [21:27<32:31, 10.38s/it]                                                 {'loss': '0.5685', 'grad_norm': '1.281', 'learning_rate': '7.71e-05', 'entropy': '1.081', 'num_tokens': '3.201e+06', 'logits/chosen': '-0.8904', 'logits/rejected': '-0.893', 'mean_token_accuracy': '0.6786', 'rewards/chosen': '-0.3252', 'rewards/rejected': '-0.8716', 'rewards/accuracies': '0.7344', 'rewards/margins': '0.5464', 'logps/chosen': '-328.5', 'logps/rejected': '-293.8', 'epoch': '0.3899'}
+ 39%|███▉      | 120/308 [21:27<32:31, 10.38s/it] 39%|███▉      | 121/308 [21:38<33:27, 10.74s/it] 40%|███▉      | 122/308 [21:49<33:09, 10.70s/it] 40%|███▉      | 123/308 [21:58<31:27, 10.20s/it] 40%|████      | 124/308 [22:10<32:54, 10.73s/it] 41%|████      | 125/308 [22:21<33:26, 10.97s/it] 41%|████      | 126/308 [22:33<33:35, 11.07s/it] 41%|████      | 127/308 [22:43<32:52, 10.90s/it] 42%|████▏     | 128/308 [22:55<33:26, 11.15s/it] 42%|████▏     | 129/308 [23:05<32:43, 10.97s/it] 42%|████▏     | 130/308 [23:16<32:06, 10.82s/it]                                                 {'loss': '0.5873', 'grad_norm': '1.086', 'learning_rate': '7.217e-05', 'entropy': '1.049', 'num_tokens': '3.483e+06', 'logits/chosen': '-0.9729', 'logits/rejected': '-0.8733', 'mean_token_accuracy': '0.6998', 'rewards/chosen': '-0.2995', 'rewards/rejected': '-0.7916', 'rewards/accuracies': '0.6937', 'rewards/margins': '0.4921', 'logps/chosen': '-313.8', 'logps/rejected': '-301.1', 'epoch': '0.4224'}
+ 42%|████▏     | 130/308 [23:16<32:06, 10.82s/it] 43%|████▎     | 131/308 [23:26<31:26, 10.66s/it] 43%|████▎     | 132/308 [23:37<31:35, 10.77s/it] 43%|████▎     | 133/308 [23:49<32:12, 11.04s/it] 44%|████▎     | 134/308 [23:58<30:43, 10.59s/it] 44%|████▍     | 135/308 [24:08<29:49, 10.34s/it] 44%|████▍     | 136/308 [24:20<30:32, 10.66s/it] 44%|████▍     | 137/308 [24:30<30:24, 10.67s/it] 45%|████▍     | 138/308 [24:41<30:32, 10.78s/it] 45%|████▌     | 139/308 [24:53<30:49, 10.94s/it] 45%|████▌     | 140/308 [25:04<30:59, 11.07s/it]                                                 {'loss': '0.5948', 'grad_norm': '1.453', 'learning_rate': '6.695e-05', 'entropy': '1.083', 'num_tokens': '3.754e+06', 'logits/chosen': '-0.8586', 'logits/rejected': '-0.7302', 'mean_token_accuracy': '0.6855', 'rewards/chosen': '-0.2722', 'rewards/rejected': '-0.7715', 'rewards/accuracies': '0.7125', 'rewards/margins': '0.4993', 'logps/chosen': '-330.6', 'logps/rejected': '-286.6', 'epoch': '0.4549'}
+ 45%|████▌     | 140/308 [25:04<30:59, 11.07s/it] 46%|████▌     | 141/308 [25:15<30:50, 11.08s/it] 46%|████▌     | 142/308 [25:26<30:37, 11.07s/it] 46%|████▋     | 143/308 [25:37<29:56, 10.89s/it] 47%|████▋     | 144/308 [25:48<29:51, 10.92s/it] 47%|████▋     | 145/308 [26:00<30:27, 11.21s/it] 47%|████▋     | 146/308 [26:11<30:12, 11.19s/it] 48%|████▊     | 147/308 [26:22<30:11, 11.25s/it] 48%|████▊     | 148/308 [26:32<29:07, 10.92s/it] 48%|████▊     | 149/308 [26:43<28:38, 10.81s/it] 49%|████▊     | 150/308 [26:53<28:22, 10.78s/it]                                                 {'loss': '0.5595', 'grad_norm': '1.055', 'learning_rate': '6.152e-05', 'entropy': '1.039', 'num_tokens': '4.031e+06', 'logits/chosen': '-0.8547', 'logits/rejected': '-0.7677', 'mean_token_accuracy': '0.6872', 'rewards/chosen': '-0.2939', 'rewards/rejected': '-0.8714', 'rewards/accuracies': '0.6937', 'rewards/margins': '0.5775', 'logps/chosen': '-321.1', 'logps/rejected': '-291.6', 'epoch': '0.4874'}
+ 49%|████▊     | 150/308 [26:53<28:22, 10.78s/it] 49%|████▉     | 151/308 [27:04<27:52, 10.65s/it] 49%|████▉     | 152/308 [27:15<27:54, 10.73s/it] 50%|████▉     | 153/308 [27:24<26:57, 10.44s/it] 50%|█████     | 154/308 [27:35<26:59, 10.52s/it] 50%|█████     | 155/308 [27:46<26:43, 10.48s/it] 51%|█████     | 156/308 [27:56<26:13, 10.35s/it] 51%|█████     | 157/308 [28:06<25:51, 10.27s/it] 51%|█████▏    | 158/308 [28:19<27:45, 11.10s/it] 52%|█████▏    | 159/308 [28:30<27:21, 11.02s/it] 52%|█████▏    | 160/308 [28:41<27:28, 11.14s/it]                                                 {'loss': '0.5423', 'grad_norm': '1.016', 'learning_rate': '5.594e-05', 'entropy': '1.062', 'num_tokens': '4.296e+06', 'logits/chosen': '-0.9475', 'logits/rejected': '-0.9237', 'mean_token_accuracy': '0.6856', 'rewards/chosen': '-0.3202', 'rewards/rejected': '-0.9483', 'rewards/accuracies': '0.7188', 'rewards/margins': '0.628', 'logps/chosen': '-328.7', 'logps/rejected': '-305', 'epoch': '0.5199'}
+ 52%|█████▏    | 160/308 [28:41<27:28, 11.14s/it] 52%|█████▏    | 161/308 [28:52<26:52, 10.97s/it] 53%|█████▎    | 162/308 [29:00<24:31, 10.08s/it] 53%|█████▎    | 163/308 [29:11<25:28, 10.54s/it] 53%|█████▎    | 164/308 [29:21<24:55, 10.39s/it] 54%|█████▎    | 165/308 [29:33<25:29, 10.69s/it] 54%|█████▍    | 166/308 [29:44<26:01, 10.99s/it] 54%|█████▍    | 167/308 [29:55<25:34, 10.88s/it] 55%|█████▍    | 168/308 [30:05<25:05, 10.76s/it] 55%|█████▍    | 169/308 [30:17<25:16, 10.91s/it] 55%|█████▌    | 170/308 [30:26<24:14, 10.54s/it]                                                 {'loss': '0.5696', 'grad_norm': '1.023', 'learning_rate': '5.028e-05', 'entropy': '1.042', 'num_tokens': '4.562e+06', 'logits/chosen': '-1.035', 'logits/rejected': '-0.9707', 'mean_token_accuracy': '0.6895', 'rewards/chosen': '-0.3737', 'rewards/rejected': '-1', 'rewards/accuracies': '0.675', 'rewards/margins': '0.6264', 'logps/chosen': '-303.7', 'logps/rejected': '-299.4', 'epoch': '0.5524'}
+ 55%|█████▌    | 170/308 [30:26<24:14, 10.54s/it] 56%|█████▌    | 171/308 [30:39<25:26, 11.14s/it] 56%|█████▌    | 172/308 [30:50<25:08, 11.09s/it] 56%|█████▌    | 173/308 [31:01<24:43, 10.99s/it] 56%|█████▋    | 174/308 [31:10<23:37, 10.58s/it] 57%|█████▋    | 175/308 [31:23<24:35, 11.10s/it] 57%|█████▋    | 176/308 [31:34<24:35, 11.18s/it] 57%|█████▋    | 177/308 [31:44<23:48, 10.91s/it] 58%|█████▊    | 178/308 [31:56<24:26, 11.28s/it] 58%|█████▊    | 179/308 [32:07<24:06, 11.22s/it] 58%|█████▊    | 180/308 [32:18<23:25, 10.98s/it]                                                 {'loss': '0.5696', 'grad_norm': '1.109', 'learning_rate': '4.462e-05', 'entropy': '0.9915', 'num_tokens': '4.826e+06', 'logits/chosen': '-1.091', 'logits/rejected': '-0.9402', 'mean_token_accuracy': '0.6945', 'rewards/chosen': '-0.3477', 'rewards/rejected': '-0.9577', 'rewards/accuracies': '0.7156', 'rewards/margins': '0.61', 'logps/chosen': '-313.9', 'logps/rejected': '-290.3', 'epoch': '0.5849'}
+ 58%|█████▊    | 180/308 [32:18<23:25, 10.98s/it] 59%|█████▉    | 181/308 [32:29<23:11, 10.96s/it] 59%|█████▉    | 182/308 [32:40<23:20, 11.11s/it] 59%|█████▉    | 183/308 [32:52<23:15, 11.17s/it] 60%|█████▉    | 184/308 [33:02<22:31, 10.90s/it] 60%|██████    | 185/308 [33:11<21:24, 10.44s/it] 60%|██████    | 186/308 [33:22<21:41, 10.66s/it] 61%|██████    | 187/308 [33:35<22:31, 11.17s/it] 61%|██████    | 188/308 [33:45<21:57, 10.98s/it] 61%|██████▏   | 189/308 [33:56<21:45, 10.97s/it] 62%|██████▏   | 190/308 [34:07<21:15, 10.81s/it]                                                 {'loss': '0.5542', 'grad_norm': '1.172', 'learning_rate': '3.903e-05', 'entropy': '1.033', 'num_tokens': '5.088e+06', 'logits/chosen': '-1.051', 'logits/rejected': '-0.9791', 'mean_token_accuracy': '0.6807', 'rewards/chosen': '-0.3017', 'rewards/rejected': '-0.9195', 'rewards/accuracies': '0.7', 'rewards/margins': '0.6179', 'logps/chosen': '-302.1', 'logps/rejected': '-289.4', 'epoch': '0.6174'}
+ 62%|██████▏   | 190/308 [34:07<21:15, 10.81s/it] 62%|██████▏   | 191/308 [34:18<21:17, 10.92s/it] 62%|██████▏   | 192/308 [34:29<21:16, 11.00s/it] 63%|██████▎   | 193/308 [34:39<20:32, 10.72s/it] 63%|██████▎   | 194/308 [34:50<20:45, 10.93s/it] 63%|██████▎   | 195/308 [35:01<20:13, 10.74s/it] 64%|██████▎   | 196/308 [35:11<20:00, 10.72s/it] 64%|██████▍   | 197/308 [35:23<20:03, 10.84s/it] 64%|██████▍   | 198/308 [35:34<20:01, 10.92s/it] 65%|██████▍   | 199/308 [35:45<19:51, 10.94s/it] 65%|██████▍   | 200/308 [35:55<19:17, 10.72s/it]                                                 {'loss': '0.6225', 'grad_norm': '1.281', 'learning_rate': '3.358e-05', 'entropy': '1.039', 'num_tokens': '5.366e+06', 'logits/chosen': '-1.019', 'logits/rejected': '-1.013', 'mean_token_accuracy': '0.6855', 'rewards/chosen': '-0.356', 'rewards/rejected': '-0.8407', 'rewards/accuracies': '0.6656', 'rewards/margins': '0.4847', 'logps/chosen': '-307.9', 'logps/rejected': '-304.6', 'epoch': '0.6499'}
+ 65%|██████▍   | 200/308 [35:55<19:17, 10.72s/it] 65%|██████▌   | 201/308 [36:09<21:07, 11.85s/it] 66%|██████▌   | 202/308 [36:20<20:05, 11.37s/it] 66%|██████▌   | 203/308 [36:30<19:27, 11.12s/it] 66%|██████▌   | 204/308 [36:42<19:43, 11.38s/it] 67%|██████▋   | 205/308 [36:51<18:22, 10.70s/it] 67%|██████▋   | 206/308 [37:04<19:03, 11.21s/it] 67%|██████▋   | 207/308 [37:15<18:46, 11.15s/it] 68%|██████▊   | 208/308 [37:25<18:11, 10.92s/it] 68%|██████▊   | 209/308 [37:37<18:30, 11.22s/it] 68%|██████▊   | 210/308 [37:47<17:39, 10.81s/it]                                                 {'loss': '0.5772', 'grad_norm': '1.039', 'learning_rate': '2.834e-05', 'entropy': '1.034', 'num_tokens': '5.638e+06', 'logits/chosen': '-0.8673', 'logits/rejected': '-0.8162', 'mean_token_accuracy': '0.6912', 'rewards/chosen': '-0.3207', 'rewards/rejected': '-0.8486', 'rewards/accuracies': '0.675', 'rewards/margins': '0.5279', 'logps/chosen': '-300.2', 'logps/rejected': '-287.7', 'epoch': '0.6824'}
+ 68%|██████▊   | 210/308 [37:47<17:39, 10.81s/it] 69%|██████▊   | 211/308 [37:59<18:16, 11.30s/it] 69%|██████▉   | 212/308 [38:11<18:10, 11.36s/it] 69%|██████▉   | 213/308 [38:22<17:57, 11.34s/it] 69%|██████▉   | 214/308 [38:33<17:23, 11.10s/it] 70%|██████▉   | 215/308 [38:43<16:46, 10.82s/it] 70%|███████   | 216/308 [38:54<16:39, 10.86s/it] 70%|███████   | 217/308 [39:05<16:48, 11.08s/it] 71%|███████   | 218/308 [39:17<16:46, 11.18s/it] 71%|███████   | 219/308 [39:28<16:28, 11.11s/it] 71%|███████▏  | 220/308 [39:41<17:10, 11.71s/it]                                                 {'loss': '0.5913', 'grad_norm': '3.531', 'learning_rate': '2.338e-05', 'entropy': '1.003', 'num_tokens': '5.924e+06', 'logits/chosen': '-0.91', 'logits/rejected': '-0.8006', 'mean_token_accuracy': '0.7021', 'rewards/chosen': '-0.2759', 'rewards/rejected': '-0.8841', 'rewards/accuracies': '0.725', 'rewards/margins': '0.6083', 'logps/chosen': '-313.3', 'logps/rejected': '-303.4', 'epoch': '0.7149'}
+ 71%|███████▏  | 220/308 [39:41<17:10, 11.71s/it] 72%|███████▏  | 221/308 [39:51<16:26, 11.34s/it] 72%|███████▏  | 222/308 [40:03<16:21, 11.42s/it] 72%|███████▏  | 223/308 [40:14<16:04, 11.35s/it] 73%|███████▎  | 224/308 [40:25<15:43, 11.23s/it] 73%|███████▎  | 225/308 [40:36<15:34, 11.26s/it] 73%|███████▎  | 226/308 [40:48<15:30, 11.35s/it] 74%|███████▎  | 227/308 [40:57<14:31, 10.76s/it] 74%|███████▍  | 228/308 [41:07<14:08, 10.60s/it] 74%|███████▍  | 229/308 [41:18<14:06, 10.72s/it] 75%|███████▍  | 230/308 [41:29<13:40, 10.52s/it]                                                 {'loss': '0.5893', 'grad_norm': '1.438', 'learning_rate': '1.876e-05', 'entropy': '1.064', 'num_tokens': '6.196e+06', 'logits/chosen': '-0.916', 'logits/rejected': '-0.88', 'mean_token_accuracy': '0.6901', 'rewards/chosen': '-0.2807', 'rewards/rejected': '-0.8405', 'rewards/accuracies': '0.675', 'rewards/margins': '0.5598', 'logps/chosen': '-327.8', 'logps/rejected': '-283.7', 'epoch': '0.7474'}
+ 75%|███████▍  | 230/308 [41:29<13:40, 10.52s/it] 75%|███████▌  | 231/308 [41:40<13:46, 10.74s/it] 75%|███████▌  | 232/308 [41:51<13:38, 10.76s/it] 76%|███████▌  | 233/308 [42:03<13:56, 11.15s/it] 76%|███████▌  | 234/308 [42:15<14:06, 11.44s/it] 76%|███████▋  | 235/308 [42:26<13:51, 11.39s/it] 77%|███████▋  | 236/308 [42:37<13:32, 11.29s/it] 77%|███████▋  | 237/308 [42:48<13:05, 11.06s/it] 77%|███████▋  | 238/308 [42:58<12:34, 10.77s/it] 78%|███████▊  | 239/308 [43:09<12:31, 10.90s/it] 78%|███████▊  | 240/308 [43:19<11:57, 10.55s/it]                                                 {'loss': '0.573', 'grad_norm': '1.367', 'learning_rate': '1.454e-05', 'entropy': '1.036', 'num_tokens': '6.474e+06', 'logits/chosen': '-0.955', 'logits/rejected': '-0.8589', 'mean_token_accuracy': '0.6882', 'rewards/chosen': '-0.291', 'rewards/rejected': '-0.8458', 'rewards/accuracies': '0.7', 'rewards/margins': '0.5548', 'logps/chosen': '-303.1', 'logps/rejected': '-288.7', 'epoch': '0.7799'}
+ 78%|███████▊  | 240/308 [43:19<11:57, 10.55s/it] 78%|███████▊  | 241/308 [43:29<11:48, 10.57s/it] 79%|███████▊  | 242/308 [43:41<11:55, 10.84s/it] 79%|███████▉  | 243/308 [43:53<12:09, 11.22s/it] 79%|███████▉  | 244/308 [44:04<12:03, 11.31s/it] 80%|███████▉  | 245/308 [44:14<11:17, 10.75s/it] 80%|███████▉  | 246/308 [44:24<11:02, 10.69s/it] 80%|████████  | 247/308 [44:36<11:14, 11.05s/it] 81%|████████  | 248/308 [44:48<11:20, 11.35s/it] 81%|████████  | 249/308 [44:58<10:37, 10.80s/it] 81%|████████  | 250/308 [45:09<10:30, 10.87s/it]                                                 {'loss': '0.5702', 'grad_norm': '1.172', 'learning_rate': '1.078e-05', 'entropy': '1.005', 'num_tokens': '6.745e+06', 'logits/chosen': '-0.8632', 'logits/rejected': '-0.7715', 'mean_token_accuracy': '0.7066', 'rewards/chosen': '-0.3656', 'rewards/rejected': '-0.9542', 'rewards/accuracies': '0.6813', 'rewards/margins': '0.5887', 'logps/chosen': '-314.8', 'logps/rejected': '-302.4', 'epoch': '0.8123'}
+ 81%|████████  | 250/308 [45:09<10:30, 10.87s/it] 81%|████████▏ | 251/308 [45:21<10:40, 11.23s/it] 82%|████████▏ | 252/308 [45:32<10:21, 11.10s/it] 82%|████████▏ | 253/308 [45:43<10:11, 11.12s/it] 82%|████████▏ | 254/308 [45:54<09:57, 11.06s/it] 83%|████████▎ | 255/308 [46:04<09:27, 10.70s/it] 83%|████████▎ | 256/308 [46:15<09:23, 10.83s/it] 83%|████████▎ | 257/308 [46:28<09:43, 11.44s/it] 84%|████████▍ | 258/308 [46:40<09:47, 11.76s/it] 84%|████████▍ | 259/308 [46:51<09:16, 11.35s/it] 84%|████████▍ | 260/308 [47:01<08:50, 11.05s/it]                                                 {'loss': '0.5744', 'grad_norm': '1.242', 'learning_rate': '7.524e-06', 'entropy': '1.084', 'num_tokens': '7.023e+06', 'logits/chosen': '-0.8286', 'logits/rejected': '-0.7552', 'mean_token_accuracy': '0.691', 'rewards/chosen': '-0.3319', 'rewards/rejected': '-0.9424', 'rewards/accuracies': '0.6687', 'rewards/margins': '0.6105', 'logps/chosen': '-326.2', 'logps/rejected': '-301', 'epoch': '0.8448'}
+ 84%|████████▍ | 260/308 [47:01<08:50, 11.05s/it] 85%|████████▍ | 261/308 [47:10<08:12, 10.48s/it] 85%|████████▌ | 262/308 [47:20<07:53, 10.29s/it] 85%|████████▌ | 263/308 [47:32<08:07, 10.83s/it] 86%|████████▌ | 264/308 [47:43<07:55, 10.80s/it] 86%|████████▌ | 265/308 [47:54<07:45, 10.83s/it] 86%|████████▋ | 266/308 [48:05<07:41, 10.98s/it] 87%|████████▋ | 267/308 [48:17<07:45, 11.35s/it] 87%|████████▋ | 268/308 [48:27<07:14, 10.86s/it] 87%|████████▋ | 269/308 [48:38<07:08, 11.00s/it] 88%|████████▊ | 270/308 [48:47<06:37, 10.47s/it]                                                 {'loss': '0.5956', 'grad_norm': '1.312', 'learning_rate': '4.812e-06', 'entropy': '1.061', 'num_tokens': '7.286e+06', 'logits/chosen': '-0.88', 'logits/rejected': '-0.8118', 'mean_token_accuracy': '0.6859', 'rewards/chosen': '-0.3027', 'rewards/rejected': '-0.8829', 'rewards/accuracies': '0.675', 'rewards/margins': '0.5802', 'logps/chosen': '-302.1', 'logps/rejected': '-270.2', 'epoch': '0.8773'}
+ 88%|████████▊ | 270/308 [48:47<06:37, 10.47s/it] 88%|████████▊ | 271/308 [48:59<06:35, 10.70s/it] 88%|████████▊ | 272/308 [49:10<06:27, 10.77s/it] 89%|████████▊ | 273/308 [49:19<06:07, 10.49s/it] 89%|████████▉ | 274/308 [49:30<05:55, 10.46s/it] 89%|████████▉ | 275/308 [49:41<05:54, 10.74s/it] 90%|████████▉ | 276/308 [49:51<05:33, 10.41s/it] 90%|████████▉ | 277/308 [50:01<05:23, 10.42s/it] 90%|█████████ | 278/308 [50:14<05:35, 11.18s/it] 91%|█████████ | 279/308 [50:25<05:18, 10.99s/it] 91%|█████████ | 280/308 [50:36<05:05, 10.90s/it]                                                 {'loss': '0.5681', 'grad_norm': '1.164', 'learning_rate': '2.68e-06', 'entropy': '1.032', 'num_tokens': '7.55e+06', 'logits/chosen': '-0.9175', 'logits/rejected': '-0.8673', 'mean_token_accuracy': '0.6855', 'rewards/chosen': '-0.366', 'rewards/rejected': '-0.9596', 'rewards/accuracies': '0.7094', 'rewards/margins': '0.5936', 'logps/chosen': '-302', 'logps/rejected': '-284.6', 'epoch': '0.9098'}
+ 91%|█████████ | 280/308 [50:36<05:05, 10.90s/it] 91%|█████████ | 281/308 [50:46<04:48, 10.68s/it] 92%|█████████▏| 282/308 [50:56<04:34, 10.54s/it] 92%|█████████▏| 283/308 [51:07<04:26, 10.67s/it] 92%|█████████▏| 284/308 [51:17<04:15, 10.65s/it] 93%|█████████▎| 285/308 [51:29<04:09, 10.84s/it] 93%|█████████▎| 286/308 [51:39<03:56, 10.75s/it] 93%|█████████▎| 287/308 [51:51<03:53, 11.14s/it] 94%|█████████▎| 288/308 [52:02<03:41, 11.07s/it] 94%|█████████▍| 289/308 [52:13<03:28, 10.95s/it] 94%|█████████▍| 290/308 [52:24<03:17, 10.98s/it]                                                 {'loss': '0.5626', 'grad_norm': '1.195', 'learning_rate': '1.156e-06', 'entropy': '1.08', 'num_tokens': '7.817e+06', 'logits/chosen': '-0.9521', 'logits/rejected': '-0.7675', 'mean_token_accuracy': '0.6783', 'rewards/chosen': '-0.4097', 'rewards/rejected': '-1.038', 'rewards/accuracies': '0.7063', 'rewards/margins': '0.6285', 'logps/chosen': '-330.5', 'logps/rejected': '-288', 'epoch': '0.9423'}
+ 94%|█████████▍| 290/308 [52:24<03:17, 10.98s/it] 94%|█████████▍| 291/308 [52:35<03:07, 11.01s/it] 95%|█████████▍| 292/308 [52:45<02:51, 10.69s/it] 95%|█████████▌| 293/308 [52:57<02:47, 11.14s/it] 95%|█████████▌| 294/308 [53:08<02:36, 11.19s/it] 96%|█████████▌| 295/308 [53:20<02:25, 11.20s/it] 96%|█████████▌| 296/308 [53:30<02:10, 10.91s/it] 96%|█████████▋| 297/308 [53:40<01:56, 10.55s/it] 97%|█████████▋| 298/308 [53:52<01:51, 11.15s/it] 97%|█████████▋| 299/308 [54:04<01:41, 11.30s/it] 97%|█████████▋| 300/308 [54:14<01:28, 11.00s/it]                                                 {'loss': '0.5501', 'grad_norm': '1.039', 'learning_rate': '2.602e-07', 'entropy': '1.084', 'num_tokens': '8.096e+06', 'logits/chosen': '-0.9066', 'logits/rejected': '-0.8301', 'mean_token_accuracy': '0.6825', 'rewards/chosen': '-0.2729', 'rewards/rejected': '-0.9494', 'rewards/accuracies': '0.725', 'rewards/margins': '0.6765', 'logps/chosen': '-330.6', 'logps/rejected': '-309.8', 'epoch': '0.9748'}
+ 97%|█████████▋| 300/308 [54:14<01:28, 11.00s/it] 98%|█████████▊| 301/308 [54:24<01:15, 10.79s/it] 98%|█████████▊| 302/308 [54:35<01:03, 10.64s/it] 98%|█████████▊| 303/308 [54:44<00:51, 10.33s/it] 99%|█████████▊| 304/308 [54:55<00:41, 10.45s/it] 99%|█████████▉| 305/308 [55:07<00:32, 10.79s/it] 99%|█████████▉| 306/308 [55:18<00:21, 10.92s/it]100%|█████████▉| 307/308 [55:28<00:10, 10.82s/it]100%|██████████| 308/308 [55:37<00:00, 10.24s/it]                                                 {'train_runtime': '3342', 'train_samples_per_second': '2.947', 'train_steps_per_second': '0.092', 'train_loss': '0.5962', 'entropy': '1.071', 'num_tokens': '8.3e+06', 'logits/chosen': '-0.9235', 'logits/rejected': '-0.8224', 'mean_token_accuracy': '0.6853', 'rewards/chosen': '-0.3834', 'rewards/rejected': '-0.8951', 'rewards/accuracies': '0.6653', 'rewards/margins': '0.5116', 'logps/chosen': '-297.5', 'logps/rejected': '-272.7', 'epoch': '1'}
+100%|██████████| 308/308 [55:41<00:00, 10.24s/it]100%|██████████| 308/308 [55:41<00:00, 10.85s/it]
+done. adapter + logs in results/runs/beta_0.1
+
+Training finished. Check the first 50 steps of the log before trusting it:
+  python - <<'EOF'
+  import json
+  rows=[json.loads(l) for l in open('<run_dir>/training_log.jsonl')]
+  steps=[r for r in rows if 'loss' in r][:60]
+  print('steps:', len(steps), 'loss first/last:', steps[0]['loss'], steps[-1]['loss'])
+  EOF
+=== step 4: eval (judge step will skip: no OpenRouter key on pod) ===
+run: results/runs/beta_0.1  beta: 0.1
+== [1/5] margin eval: base ==
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:15, 21.95it/s]Loading weights:  22%|██▏       | 76/338 [00:00<00:00, 380.07it/s]Loading weights:  47%|████▋     | 158/338 [00:00<00:00, 564.59it/s]Loading weights:  69%|██████▊   | 232/338 [00:00<00:00, 628.51it/s]Loading weights:  93%|█████████▎| 313/338 [00:00<00:00, 691.45it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 591.13it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/dpo-lab/src/dpo_weekend/evaluate.py", line 526, in <module>
+    main()
+  File "/workspace/dpo-lab/src/dpo_weekend/evaluate.py", line 489, in main
+    run_margin_eval(args.adapter_dir, args.splits_dir, args.beta,
+  File "/workspace/dpo-lab/src/dpo_weekend/evaluate.py", line 185, in run_margin_eval
+    lp_c = sequence_logprob(policy, tok, row["prompt"], row["chosen"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/dpo-lab/src/dpo_weekend/evaluate.py", line 140, in sequence_logprob
+    ids = torch.tensor([input_ids], device=_model_device(model))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: too many dimensions 'str'
+EVAL EXITED NONZERO
+=== packaging results ===
+
