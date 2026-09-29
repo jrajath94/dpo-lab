@@ -1,0 +1,72 @@
+# Main config: Qwen2.5-1.5B-Instruct, DPO with QLoRA, single 24 GB GPU.
+# Everything here is a starting point. Lock values after the first real run.
+
+model:
+  name: "Qwen/Qwen2.5-1.5B-Instruct"
+  # Exact hub revision pinned 2026-09-28. from_pretrained without this
+  # silently follows weight updates on the repo; the pin makes the base
+  # model reproducible. None means "hub default" (not recommended).
+  revision: "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  trust_remote_code: false
+  dtype: "bfloat16"
+
+# QLoRA: 4-bit base, trainable adapters, frozen bf16 reference model.
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_compute_dtype: "bfloat16"
+  bnb_4bit_use_double_quant: true
+
+lora:
+  r: 64
+  alpha: 16
+  dropout: 0.05
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj",
+                  "gate_proj", "up_proj", "down_proj"]
+
+data:
+  dataset: "HuggingFaceH4/ultrafeedback_binarized"
+  # Shared across beta-sweep runs: build once with 01_prepare_data.sh.
+  splits_dir: "results/splits"
+  train_pairs: 10000
+  margin_eval_pairs: 1000
+  generation_prompts: 200
+  seed: 42
+  max_seq_length: 1024
+  # TRL expects columns: prompt, chosen, rejected as conversational message
+  # lists. data.py runs TRL's extract_prompt on ultrafeedback_binarized's
+  # implicit-prompt format to produce exactly that.
+
+dpo:
+  beta: 0.1            # sweep candidates: 0.05, 0.1, 0.2
+  loss_type: "sigmoid" # standard DPO; alternatives live in TRL, not here
+  num_train_epochs: 1
+  learning_rate: 1.0e-4   # LoRA params only; full-finetune would use ~5e-7
+  lr_scheduler: "cosine"
+  warmup_ratio: 0.1
+  per_device_batch: 2
+  gradient_accumulation_steps: 16  # effective batch 32
+  gradient_checkpointing: true
+  max_grad_norm: 1.0
+  logging_steps: 10
+  save_steps: 200
+  eval_strategy: "no"    # evals are separate scripts, not trainer callbacks
+
+output:
+  dir: "results/runs/beta_0.1"
+  save_adapter_only: true
+
+# Eval settings shared by 03_evaluate.sh.
+eval:
+  temperature: 0.7
+  top_p: 0.9
+  max_new_tokens: 512
+  # Fixed external judge for the generation win rate. Name it in every
+  # report. A judge change invalidates old numbers. Overridable with
+  # JUDGE_MODEL env var at judge time.
+  judge_model: "openai/gpt-4o-mini"
+  mmlu_limit: 200
+  mmlu_batch_size: 8
+
+# Reproducibility
+seed: 42
