@@ -1,0 +1,35 @@
+2026-09-28T23:33:13Z monitor started
+[2026-09-28T23:33:13Z poll 1] status.json: UNREACHABLE: HTTP 404: <!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Error response</title>
+    </head>
+    <body>
+        <h1>Error response</h1>
+        <p>Error code: 404</p>
+ 
+[2026-09-28T23:33:13Z poll 1] bootstrap.log tail:
+=== bootstrap start 2026-09-28T23:32:40Z ===
+GPU: NVIDIA GeForce RTX 4090
+tar: dpo-lab/README.md: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/pyproject.toml: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/.gitignore: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/configs/dpo_qwen25_15b_qlora.yaml: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/configs/dpo_qwen25_3b.yaml: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/__init__.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/train.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/evaluate.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/utils.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/plots.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/src/dpo_weekend/data.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/tests/test_splits.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/tests/test_smoke.py: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/02_train.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/01_prepare_data.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/03_evaluate.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/00_smoke_test.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/scripts/04_beta_sweep.sh: Cannot change ownership to uid 0, gid 65534: Operation not permitted
+tar: dpo-lab/script
+... [truncated 5517 chars; rerun with --full]
+[2026-09-28T23:33:13Z] --- end poll 1 ---
