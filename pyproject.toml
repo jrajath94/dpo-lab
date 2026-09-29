@@ -1,0 +1,42 @@
+[project]
+name = "dpo-weekend"
+version = "0.1.0"
+description = "Weekend-scale DPO fine-tuning on a small open model. Scaffold."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+# Pinned to the exact set proven on the pod 2026-09-28 (run 2 installed
+# these cleanly and the model loaded fine; only DPOConfig's removed
+# max_prompt_length kwarg broke, now handled by _filter_kwargs_for in
+# train.py). Do NOT relax these to >= floors: silent TRL/transformers
+# drift already killed one run. torch comes from the RunPod image
+# (runpod/pytorch:2.8.0-py3.11-cuda12.8.1, torch 2.8.0) via
+# --system-site-packages, so it stays a floor here.
+dependencies = [
+    "torch>=2.4",
+    "transformers==5.17.0",
+    "datasets==5.0.1",
+    "trl==1.14.0",
+    "peft==0.21.0",
+    "accelerate==1.15.0",
+    "bitsandbytes==0.50.2",
+    "pyyaml>=6.0",
+    "numpy>=1.26",
+    "requests>=2.31",      # OpenRouter judge calls
+    "matplotlib>=3.8",     # training diagnostic plots (Agg backend)
+]
+
+[project.optional-dependencies]
+eval = [
+    "lm-eval==0.4.13",   # regression guard (MMLU slice)
+]
+test = [
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
