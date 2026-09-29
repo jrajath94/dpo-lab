@@ -1,0 +1,54 @@
+# Stretch config: Qwen2.5-3B-Instruct. Needs a 40 GB card (A100).
+# Full fine-tune instead of QLoRA, so the optimizer states fit the budget.
+# Do not run this on a 24 GB card. It will OOM.
+
+model:
+  name: "Qwen/Qwen2.5-3B-Instruct"
+  trust_remote_code: false
+  dtype: "bfloat16"
+
+quantization:
+  load_in_4bit: false   # full fine-tune; 4-bit path is the 1.5B config
+
+# No LoRA here: all parameters train. Reference model stays frozen in bf16.
+full_finetune: true
+
+data:
+  dataset: "HuggingFaceH4/ultrafeedback_binarized"
+  # Shared across beta-sweep runs: build once with 01_prepare_data.sh.
+  splits_dir: "results/splits"
+  train_pairs: 10000
+  margin_eval_pairs: 1000
+  generation_prompts: 200
+  seed: 42
+  max_seq_length: 1024
+
+dpo:
+  beta: 0.1
+  loss_type: "sigmoid"
+  num_train_epochs: 1
+  learning_rate: 5.0e-7   # full-finetune DPO LR, Zephyr-style starting point
+  lr_scheduler: "cosine"
+  warmup_ratio: 0.1
+  per_device_batch: 1
+  gradient_accumulation_steps: 32  # effective batch 32
+  gradient_checkpointing: true
+  max_grad_norm: 1.0
+  logging_steps: 10
+  save_steps: 200
+  eval_strategy: "no"
+
+output:
+  dir: "results/runs/beta_0.1_3b_full"
+  save_adapter_only: false
+
+# Eval settings shared by 03_evaluate.sh.
+eval:
+  temperature: 0.7
+  top_p: 0.9
+  max_new_tokens: 512
+  judge_model: "openai/gpt-4o-mini"
+  mmlu_limit: 200
+  mmlu_batch_size: 8
+
+seed: 42
